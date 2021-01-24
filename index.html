@@ -14,7 +14,6 @@
 <body>
   <div style="padding-left: 20%; padding-right: 20%; margin-top: 5%;">
     <div class="container">
-
       <!-- Initial Form -->
       <form class="formhelper-1" id="webflow">
         <div class="mb-3">
@@ -41,14 +40,14 @@
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <div class="form-check mb-3">
-          <input class="form-check-input" data-identifier="marketo-radio-default" type="radio" name="flexRadioDefault"
+          <input class="form-check-input" data-identifier="marketo-radio-default" type="radio" name="marketo-radio"
             id="flexRadioDefault1">
           <label class="form-check-label" for="flexRadioDefault1">
             Default radio
           </label>
         </div>
         <div class="form-check mb-3">
-          <input class="form-check-input" data-identifier="marketo-radio-alternative" type="radio">
+          <input class="form-check-input" data-identifier="marketo-radio-alternative" type="radio" name="marketo-radio">
           <label class="form-check-label" for="flexRadioDefault1">
             Alternative radio
           </label>
@@ -93,14 +92,14 @@
           <label class="form-check-label">Check me out</label>
         </div>
         <div class="form-check mb-3">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="marketo-radio-default">
+          <input class="form-check-input" type="radio" name="marketo-radio" id="marketo-radio-default">
           <label class="form-check-label">
             Default radio
           </label>
         </div>
         <div class="form-check mb-3">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="marketo-radio-alternative">
-          <label class="form-check-label" for="flexRadioDefault1">
+          <input class="form-check-input" type="radio" name="marketo-radio" id="marketo-radio-alternative">
+          <label class="form-check-label">
             Alternative radio
           </label>
         </div>
@@ -117,10 +116,7 @@
         </select>
         <button id="webflow-submit" type="submit" data-submit="Submit" class="btn btn-primary">Submit</button>
       </form>
-
     </div>
-
-
   </div>
   <script>
     /* 
@@ -136,9 +132,102 @@
     */
     $(document).ready(function () {
       /* 
+       Radio based inputs
+      */
+      $('input[type="radio"]').change(function (e) {
+
+        /* 
+        For Debugging Purposes
+        */
+        // console.log($(this));
+        // console.log($(this).data());
+        // console.log($(this).parent());
+        // console.log($(this).parent()[0]);
+        // console.log($(this).parent()[0]["parentElement"]);
+        // console.log($(this).parent()[0]["parentElement"]["id"]);
+        // console.log($(this).parent()[0]["parentElement"]["className"]);
+        /* 
+        Variable Declaration
+        */
+        const _inputDataAttributes = $(this).data(); // data-* attributes
+        const _ = $(this).parent()[0]["parentElement"]["className"]; // current parent form className
+        const _length = _.length; // length of className
+        const _res = parseInt(_.slice((_length - 1)), 10); // parent form class suffix, to indicate next form that should be mirrored programmatically
+        const _parentFormClassName = _.slice(0, (_length - 1)); // parent form class prefix, to indicate next form that should be mirrored programmatically
+        const _mirrorFormClassName = _parentFormClassName + (_res + 1); // mirror form - form to submit values to 
+        var _mirrorForm = $(`.${_mirrorFormClassName} :input[type="radio"]`);
+        /* 
+        Check Mirror Form's element's id's to find the one that matches the data attributes of the current input
+        If there is a matching entry, 
+        Set the mirror form's input value to the current input
+        */
+        for (let i = 0; i < _mirrorForm.length; i++) {
+          for (const [key, value] of Object.entries(_inputDataAttributes)) {
+            if (_mirrorForm[i]["id"] == value) {
+
+              /* 
+                For Debugging Purposes
+              */
+              console.log(_mirrorForm);
+              console.log(_mirrorForm[i]);
+              console.log(_mirrorForm[i]['id']);
+              if ($(this).is(":checked")) {
+                document.getElementById(`${_mirrorForm[i]['id']}`).checked = true;
+              }
+              else if ($(this).is(":not(:checked)")) {
+                document.getElementById(`${_mirrorForm[i]['id']}`).checked = false;
+              }
+            }
+          }
+        }
+        
+      });
+
+      /* 
+      Checkbox based inputs
+      */
+      $('input[type="checkbox"]').click(function () {
+
+        /* 
+        For Debugging Purposes
+        */
+        // console.log($(this));
+        // console.log($(this).data());
+        // console.log($(this).parent());
+        // console.log($(this).parent()[0]);
+        // console.log($(this).parent()[0]["parentElement"]);
+        // console.log($(this).parent()[0]["parentElement"]["id"]);
+        // console.log($(this).parent()[0]["parentElement"]["className"]);
+        /* 
+        Variable Declaration
+        */
+        const _inputDataAttributes = $(this).data(); // data-* attributes
+        const _ = $(this).parent()[0]["parentElement"]["className"]; // current parent form className
+        const _length = _.length; // length of className
+        const _res = parseInt(_.slice((_length - 1)), 10); // parent form class suffix, to indicate next form that should be mirrored programmatically
+        const _parentFormClassName = _.slice(0, (_length - 1)); // parent form class prefix, to indicate next form that should be mirrored programmatically
+        const _mirrorFormClassName = _parentFormClassName + (_res + 1); // mirror form - form to submit values to 
+        var _mirrorForm = $(`.${_mirrorFormClassName} :input[type="checkbox"]`);
+
+        /* 
+        For Debugging Purposes
+        */
+        // console.log(_mirrorForm);
+        // console.log(_mirrorForm[0]);
+        // console.log(_mirrorForm[0]['id']);
+        if ($(this).is(":checked")) {
+          // console.log("Checkbox is checked.");
+          document.getElementById(`${_mirrorForm[0]['id']}`).checked = true;
+        }
+        else if ($(this).is(":not(:checked)")) {
+          // console.log("Checkbox is unchecked.");
+          document.getElementById(`${_mirrorForm[0]['id']}`).checked = false;
+        }
+      });
+
+      /* 
       Select Inputs Only
       */
-
       $('select').change(function (event) {
         /* 
         For Debugging Purposes Only
@@ -174,18 +263,15 @@
           }
 
         }
-
-
-        /* 
-        Parent - event.target.parentElement
-        Value - 
-        */
-
-
-
-
       })
 
+
+      /* 
+      
+      Refactor script to  listen to submission event of first form
+
+      Text & Numerical Inputs
+      */
       $("#webflow-submit").click(function (e) {
         e.preventDefault();
 
