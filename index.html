@@ -67,7 +67,15 @@
         </select>
         <button id="webflow-submit" type="submit" data-submit="Submit" class="btn btn-primary">Submit</button>
       </form>
+
+    </div>
+    <div>
       <!-- Mirror Form -->
+      <!-- 
+
+
+        <script src="//support.xyz.com/js/forms2/js/forms2.min.js"></script>
+      -->
       <form class="formhelper-2" id="marketo">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -116,7 +124,34 @@
         </select>
         <button id="webflow-submit" type="submit" data-submit="Submit" class="btn btn-primary">Submit</button>
       </form>
+      <!-- 
+      
+      How Marketo Forms are Loaded
+    
+      <script>MktoForms2.loadForm("", "", );</script>
+      <script>
+      /* 
+      
+      */
+      MktoForms2.whenReady((form) => {
+      
+      // DESIRED SETUP, On Submit, check for errors as well as success
+      // Then, depending on event fired, apply appropriate business logic
+      
+      
+      // Error Handling - ./js/error.handler.js
+      var sameOrigin = !window.MktoForms2XDIframe;
+      if (sameOrigin) addSameOriginHandler(form);
+      if (listenPending) listenErrors(cb, sameOrigin);   
+
+      // Current Setup, On Submit, Reset Form
+      form.onSubmit(() => form.getFormElem()[0].reset());
+      });
+      </script> 
+
+      -->
     </div>
+   
   </div>
 
   <script type="text/javascript" src="./js/mirror-form.js">

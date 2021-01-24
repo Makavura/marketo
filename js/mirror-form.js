@@ -178,22 +178,22 @@
           /* 
           Set email values
           */
-          $(`#${mirrorForm[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
+          $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
         } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'text') {
           /* 
           Set text values
           */
-          $(`#${mirrorForm[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
+          $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
         } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'password') {
           /* 
           Set password values
           */
-          $(`#${marketo[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
+          $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
         } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'number') {
           /* 
           Set number values
           */
-          $(`#${mirrorForm[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
+          $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
         } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'submit') {
           /* 
           End of form
