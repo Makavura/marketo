@@ -24,7 +24,8 @@ $(document).ready(function () {
     const _parentFormClassName = _.slice(0, (_length - 1)); // parent form class prefix, to indicate next form that should be mirrored programmatically
     const _mirrorFormClassName = _parentFormClassName + (_res + 1); // mirror form - form to submit values to 
     var _mirrorForm = $(`.${_mirrorFormClassName} :input[type="radio"]`);
-    console.log(_inputDataAttributes)
+    console.log(_inputDataAttributes, _, _length, _res, _parentFormClassName, _mirrorFormClassName);
+
     /* 
     Check Mirror Form's element's id's to find the one that matches the data attributes of the current input
     If there is a matching entry, 
