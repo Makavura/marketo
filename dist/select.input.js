@@ -25,8 +25,11 @@ $(document).ready(function () {
 
                 $('select')[_].options
 
-                for (var i = 0; i < $('select')[_].options.length; i++){
-                    console.log($('select')[_].options[i]);
+                for (let i = 0; i < $('select')[_].options.length; i++){
+                    // console.log($('select')[_].options[i]);
+                    if($('select')[i].value == $('select')[_].options[i].value){
+                        $('select')[_].options[i]['selected'] = true;
+                    }
                 }
                 // $(`${$('select')[_]['id']}`)
                 // console.log($('select')[_]['option']);
