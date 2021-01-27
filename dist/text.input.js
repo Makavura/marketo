@@ -2,7 +2,7 @@ $(document).ready(function () {
     /* 
      Text based inputs
     */
-    $('#webflow :input[type="text"]').change(function (e) {
+    $('#webflow :input[type="text"]').keyup(function (e) {
         console.log($(this));
         $('#webflow :input[type="text"]').each(function (i, value) {
             /* 
