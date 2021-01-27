@@ -276,9 +276,9 @@ $(document).ready(function () {
     $( "#email-form" ).submit(function( event ) {
         console.warn( "Handler for .submit() called." );
 
-        $(".w-form-done").hide();
-        $(".w-form-fail").hide();
-        $("#email-form").show();
+        document.getElementById("email-form").style.display = "block";
+        document.getElementsByClassName("w-form-done").style = "hidden";
+        document.getElementsByClassName("w-form-fail").style.display = "hidden";
         event.preventDefault();
         return false;
       });
