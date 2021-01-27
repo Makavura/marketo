@@ -11,8 +11,11 @@ $(document).ready(function () {
             if ($('select')[i]['id'] == e.target.id) {
                 // console.log($('select')[i]['id'], e.target.id, $('select').length - (i +1));
                 // console.log($('select')[`${$('select').length - (1 +i)}`]);
+                if(i == ($('select').length/2)){
+                    break;
+                }
                 const _ = (($('select').length/2) + i);
-                console.log(_,$('select')[_].value,$('select')[i].value )
+                // console.log(_,$('select')[_].value, $('select')[i].value )
                 $('select')[_].value = $('select')[i].value;
             }
         });
