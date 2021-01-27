@@ -17,7 +17,7 @@ $(document).ready(function () {
                 const _ = (($('select').length/2) + i);
                 console.log(i);
                 // console.log(_,$('select')[_].value, $('select')[i].value )
-                $('select')[_].value = $('select')[i].value;
+                $(`${$('select')[_]['id']}`).val(e.target.value);
             }
         });
     });
