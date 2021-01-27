@@ -273,13 +273,17 @@ $(document).ready(function () {
         console.log("CLICKED....HHH")
     });
 
-    $( "#email-form" ).submit(function( event ) {
-        console.warn( "Handler for .submit() called." );
+    $("#email-form").submit(function (event) {
+        console.warn("Handler for .submit() called.");
 
-        document.getElementById("email-form").style.display = "block";
-        document.getElementsByClassName("w-form-done").style = "hidden";
-        document.getElementsByClassName("w-form-fail").style.display = "hidden";
         event.preventDefault();
         return false;
-      });
+    });
+
+    $('#webflow-submit').click(function (e) {
+        e.preventDefault();
+
+        console.log("CLICKED....HHH")
+    });
+
 });
