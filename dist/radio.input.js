@@ -10,15 +10,15 @@ $(document).ready(function () {
             Find the element in mirror form that matches this index
             Mirror selection
             */
-           console.log(value, i, $('#mktoForm_1048 :input[type="radio"]')[i]);
+        //    console.log(value, i, $('#mktoForm_1048 :input[type="radio"]')[i]);
             if ($('#webflow :input[type="radio"]')[i]['id'] == e.target.id) {
                 // console.log($(this));
                 // console.log($('#mktoForm_1048 :input[type="radio"]')[i]);
                 if ($(this).is(":checked")) {
-                    // $('#mktoForm_1048 :input[type="radio"]')[i].checked = true;
+                    $('#mktoForm_1048 :input[type="radio"]')[i].checked = true;
                 }
                 else if ($(this).is(":not(:checked)")) {
-                    // $('#mktoForm_1048 :input[type="radio"]')[i].checked = true;
+                    $('#mktoForm_1048 :input[type="radio"]')[i].checked = false;
                 }
             }
         });
