@@ -225,7 +225,7 @@ $(document).ready(function () {
         */
 
         let initialFormInputs = $("#webflow :input");
-        let mirrorFormInputs = $("#marketo :input");
+        let mirrorFormInputs = $("#mktoForm_1048 :input");
 
 
         for (let i = 0; i < initialFormInputs.length; i++) {
