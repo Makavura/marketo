@@ -280,5 +280,6 @@ $(document).ready(function () {
         $(".w-form-fail").hide();
         $("#email-form").show();
         event.preventDefault();
+        return false;
       });
 });
