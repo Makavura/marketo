@@ -11,7 +11,9 @@ $(document).ready(function () {
             if ($('select')[i]['id'] == e.target.id) {
                 // console.log($('select')[i]['id'], e.target.id, $('select').length - (i +1));
                 // console.log($('select')[`${$('select').length - (1 +i)}`]);
-                $('select')[(($('select').length/2) + i)].value = $('select')[i].value;
+                const _ = (($('select').length/2) + i);
+                console.log(_,$('select')[_].value,$('select')[i].value )
+                $('select')[_].value = $('select')[i].value;
             }
         });
     });
