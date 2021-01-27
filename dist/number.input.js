@@ -12,7 +12,7 @@ $(document).ready(function () {
             */
            console.log(value, i, $('#mktoForm_1048 :input[type="email"]')[i]);
             if ($('#webflow :input[type="number"]')[i]['id'] == e.target.id) {
-                    $('#mktoForm_1048 :input[type="number"]')[i].val(e.target.value);
+                    $('#mktoForm_1048 :input[type="number"]')[i].value = e.target.value;
             }
         });
     })
