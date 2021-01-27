@@ -12,7 +12,7 @@ $(document).ready(function () {
             */
             console.log(value, i, $('#mktoForm_1048 :input[type="email"]')[i]);
             if ($('#webflow :input[type="email"]')[i]['id'] == e.target.id) {
-                console.log("GOTCHA",                 document.getElementById($('#mktoForm_1048 :input[type="email"]')[i]['id']));
+                console.log("GOTCHA", document.getElementById($('#mktoForm_1048 :input[type="email"]')[i]['id']), e.target.value);
                 document.getElementById($('#mktoForm_1048 :input[type="email"]')[i]['id']).value = e.target.value;
             }
         });
