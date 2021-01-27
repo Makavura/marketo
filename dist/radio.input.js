@@ -2,7 +2,7 @@ $(document).ready(function () {
     /* 
      Radio based inputs
     */
-    $('#webflow: input[type="radio"]').each(function (value, i) {
+    $('#webflow :input[type="radio"]').each(function (value, i) {
 
         /* 
         Find index of radio button
