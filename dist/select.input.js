@@ -5,8 +5,15 @@ $(document).ready(function () {
     $('select').change(function (e) {
         // console.log($(this), e.target.value);
 
+        let _ = $('select').length;
+
+        let rest = _/2;
+
+
         $('select').each(function (i, value) {
-            // console.log(i, value);
+            if($('select')[i]['id'] == e.target.id){
+            console.log(i, value);
+            }
         });
 
     });
