@@ -15,6 +15,7 @@ $(document).ready(function () {
                     return;
                 }
                 const _ = (($('select').length/2) + i);
+                console.log(i);
                 // console.log(_,$('select')[_].value, $('select')[i].value )
                 document.getElementById(`${$('select')[_]}`).value = $('select')[i].value;
             }
