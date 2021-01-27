@@ -4,6 +4,7 @@ $(document).ready(function () {
     */
     $('#webflow :input[type="radio"]').change(function (e) {
         console.log($(this));
+        console.log($('#mktoForm_1048 :input[type="radio"]'));
         $('#webflow :input[type="radio"]').each(function (value, i) {
             /* 
             Find index of radio button
@@ -12,10 +13,10 @@ $(document).ready(function () {
             */
             console.log($(this));
             if ($(this).is(":checked")) {
-                $('#mktoForm_1048 :input[type="radio"]')[i].checked = true;
+                // $('#mktoForm_1048 :input[type="radio"]')[i].checked = true;
             }
             else if ($(this).is(":not(:checked)")) {
-                $('#mktoForm_1048 :input[type="radio"]')[i].checked = true;
+                // $('#mktoForm_1048 :input[type="radio"]')[i].checked = true;
             }
         });
     })
