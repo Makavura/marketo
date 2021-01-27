@@ -4,7 +4,7 @@ $(document).ready(function () {
     */
     $('#webflow :input[type="radio"]').change(function (e) {
         console.log($(this));
-        $('#webflow :input[type="radio"]').each(function (value, i) {
+        $('#webflow :input[type="radio"]').each(function (i, value) {
             /* 
             Find index of radio button
             Find the element in mirror form that matches this index
