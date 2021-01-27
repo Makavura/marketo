@@ -18,11 +18,11 @@ $(document).ready(function () {
                 $('select')[_].options
 
                 for (let i = 0; i < $('select')[_].options.length; i++){
+                    console.log($('select')[index].value,($('select')[index].value == $('select')[_].options[i].value), $('select')[_].options[i].value)
                     if($('select')[index].value == $('select')[_].options[i].value){
                         $('select')[_].options[i]['selected'] = true;
                     }
                 }
-
             }
 
         });
