@@ -9,14 +9,14 @@ $(document).ready(function () {
         $('select').each(function (index, value) {
 
             console.log(index, value);
-            
+
             if ($('select')[index]['id'] == e.target.id) {
 
                 if (index == ($('select').length / 2)) {
                     return;
                 }
 
-                const _ = (($('select').length / 2) + index);
+                const _ = (($('select').length) - (index + 1));
                 $('select')[_].options
 
                 for (let i = 0; i < $('select')[_].options.length; i++){
