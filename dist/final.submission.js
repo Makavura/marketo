@@ -7,8 +7,8 @@ $(document).ready(function () {
     $("#webflow-submit").click(function (e) {
         e.preventDefault();
        
-        let _FormData = new FormData($('#mktoForm_1048'));
-        console.log(_FormData);
+        // let _FormData = new FormData($('#mktoForm_1048'));
+        // console.log(_FormData);
 
     });
 
