@@ -5,8 +5,11 @@ $(document).ready(function () {
     $('select').change(function (e) {
         $('select').each(function (i, value) {
             if ($('select')[i]['id'] == e.target.id) {
-                let mirrorIndex = $('select').length - i;
-                $('select')[mirrorIndex].value  = e.target.value;
+
+                $('select')[$('select').length - i];
+                console.log(
+                    $('select')[$('select').length - i]);
+
             }
         });
     });
