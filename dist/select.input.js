@@ -9,8 +9,9 @@ $(document).ready(function () {
         $('select').each(function (i, value) {
             // console.log(i, value, e.target.id, $('select')[i]['id'], $('select').closest('form'));
             if ($('select')[i]['id'] == e.target.id) {
-                console.log($('select')[i]['id'], e.target.id, $('select').length - (i +1));
-                console.log($('select')[`${$('select').length - (1 +i)}`]);
+                // console.log($('select')[i]['id'], e.target.id, $('select').length - (i +1));
+                // console.log($('select')[`${$('select').length - (1 +i)}`]);
+                $('select')[(($('select').length/2) + i)].value = $('select')[i].value;
             }
         });
     });
