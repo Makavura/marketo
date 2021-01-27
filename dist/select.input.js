@@ -6,33 +6,23 @@ $(document).ready(function () {
      Check 
     */
     $('select').change(function (e) {
-        $('select').each(function (i, value) {
+        $('select').each(function (index, value) {
 
-            // console.log(i, value, e.target.id, $('select')[i]['id'], $('select').closest('form'));
-            if ($('select')[i]['id'] == e.target.id) {
+            if ($('select')[index]['id'] == e.target.id) {
 
-                // console.log($('select')[i]['id'], e.target.id, $('select').length - (i +1));
-                // console.log($('select')[`${$('select').length - (1 +i)}`]);
-                
-                if (i == ($('select').length / 2)) {
+                if (index == ($('select').length / 2)) {
                     return;
                 }
 
-                const _ = (($('select').length / 2) + i);
-                // console.log(i);
-                // console.log(_, $('select')[_].value, $('select')[i].value)
-
-
+                const _ = (($('select').length / 2) + index);
                 $('select')[_].options
 
                 for (let i = 0; i < $('select')[_].options.length; i++){
-                    // console.log($('select')[_].options[i]);
-                    if($('select')[i].value == $('select')[_].options[i].value){
+                    if($('select')[index].value == $('select')[_].options[i].value){
                         $('select')[_].options[i]['selected'] = true;
                     }
                 }
-                // $(`${$('select')[_]['id']}`)
-                // console.log($('select')[_]['option']);
+
             }
 
         });
