@@ -260,7 +260,7 @@ $(document).ready(function () {
         }
         console.log(mirrorFormInputs);
         console.log(initialFormInputs);
-
+        console.log(_mirrorFormClassName);
         _mirrorForm = document.getElementsByClassName(_mirrorFormClassName);
         _mirrorFormData = new FormData(_mirrorForm);
         console.log(_mirrorFormData);
