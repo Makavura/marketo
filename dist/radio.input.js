@@ -17,7 +17,7 @@ $(document).ready(function () {
     /* 
     Variable Declaration
     */
-   console.log("ID: ", e.target.id, $(this).id);
+   console.log("ID: ", e.target.id, $(this).attr("id"));
 
     const _inputDataAttributes = $(this).data(); // data-* attributes
     const _ = $(this).parent()[0]["parentElement"]["className"]; // current parent form className
