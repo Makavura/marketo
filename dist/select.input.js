@@ -4,6 +4,7 @@ $(document).ready(function () {
     */
     $('select').change(function (e) {
         $('select').each(function (i, value) {
+            console.log(i, value, e.target.id, $('select')[i]['id']);
             if ($('select')[i]['id'] == e.target.id) {
 
                 $('select')[$('select').length - i];
