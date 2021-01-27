@@ -25,13 +25,13 @@ $(document).ready(function () {
         /* 
         For Debugging Purposes
         */
-        console.log($(this));
-        console.log($(this).data());
-        console.log($(this).parent());
-        console.log($(this).parent()[0]);
-        console.log($(this).parent()[0]["parentElement"]);
-        console.log($(this).parent()[0]["parentElement"]["id"]);
-        console.log($(this).parent()[0]["parentElement"]["className"]);
+        // console.log($(this));
+        // console.log($(this).data());
+        // console.log($(this).parent());
+        // console.log($(this).parent()[0]);
+        // console.log($(this).parent()[0]["parentElement"]);
+        // console.log($(this).parent()[0]["parentElement"]["id"]);
+        // console.log($(this).parent()[0]["parentElement"]["className"]);
         /* 
         Variable Declaration
         */
@@ -272,4 +272,9 @@ $(document).ready(function () {
 
         console.log("CLICKED....HHH")
     });
+
+    $( "#email-form" ).submit(function( event ) {
+        console.warn( "Handler for .submit() called." );
+        event.preventDefault();
+      });
 });
