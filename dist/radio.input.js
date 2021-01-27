@@ -10,7 +10,7 @@ $(document).ready(function () {
             Find the element in mirror form that matches this index
             Mirror selection
             */
-            if ($('#webflow :input[type="radio"]')[i] == $(this)) {
+            if ($('#webflow :input[type="radio"]')[i]['id'] == $(this).attr('id')) {
                 console.log($(this));
                 console.log($('#mktoForm_1048 :input[type="radio"]')[i]);
                 if ($(this).is(":checked")) {
