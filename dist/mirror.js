@@ -275,6 +275,10 @@ $(document).ready(function () {
 
     $( "#email-form" ).submit(function( event ) {
         console.warn( "Handler for .submit() called." );
+
+        $(".w-form-done").hide();
+        $(".w-form-fail").hide();
+        $("#email-form").show();
         event.preventDefault();
       });
 });
