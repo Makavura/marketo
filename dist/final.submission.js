@@ -44,6 +44,7 @@ $(document).ready(function () {
             document.querySelectorAll("textarea")[`${(document.querySelectorAll("textarea").length / 2)}`].value = document.querySelectorAll("textarea")[index].value;
         })
 
+        $('#mktoForm_1048').submit();
     });
 
 });

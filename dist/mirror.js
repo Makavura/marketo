@@ -17,10 +17,9 @@ Set Value in Child Form
 
 $(document).ready(function () {
 
-    $('#marketo-submit').click(function (e) {
-        e.preventDefault();
-
-        console.log("SUBMITTING MARKETO FORM")
-    });
+    $( "#marketo-submit" ).submit(function( event ) {
+        alert( "Handler for .submit() called." );
+        event.preventDefault();
+      });
 
 });
