@@ -28,9 +28,9 @@ $(document).ready(function () {
                     In event of multiple date pickers
                     */
 
-                   if(document.querySelectorAll('[id^=date]').length == (count +1)  ){
-                    $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
-                   }
+                    if (document.querySelectorAll('[id^=date]').length == (count + 1)) {
+                        $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
+                    }
 
 
                 });
@@ -39,12 +39,22 @@ $(document).ready(function () {
                 Does not include date in id
                 Matches current selection
                 */
-                if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
-                    $('#mktoForm_1048 :input[type="text"]')[index].value = e.target.value;
-                }
+
+                $('#mktoForm_1048 :input[type="text"]').each(function (count, value) {
+                    /* 
+                    In event of multiple date pickers
+                    */
+
+                   if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
+
+
+                        $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
+
+                    }
+                });
             }
 
-           
+
         });
     })
 
