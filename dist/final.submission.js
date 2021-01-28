@@ -18,9 +18,13 @@ $(document).ready(function () {
                 MFInputs[i]["value"] = WFInputs[i]["value"];
             } else if (WFInputs[i]["type"] == 'number') {
                 MFInputs[i]["value"] = WFInputs[i]["value"];
-            }
-
+            } else if (WFInputs[i]["type"] == 'url') {
+                MFInputs[i]["value"] = WFInputs[i]["value"];
+            } 
+    
         }
+
+        $("#mktoForm_1048 :input[type='date']")[0]["value"] = $('#datepicker').val();
 
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
             if (index == ((document.querySelectorAll("textarea").length / 2))) {
