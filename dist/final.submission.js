@@ -12,7 +12,7 @@ $(document).ready(function () {
         let WFInputs = $("#webflow :input");
         let MFInputs = $("#mktoForm_1048 :input");
 
-        for (let i = 0; i < initialFormInputs.length; i++) {
+        for (let i = 0; i < WFInputs.length; i++) {
 
             if (WFInputs[i]["type"] == 'text') {
                 MFInputs[i]["value"] = WFInputs[i]["value"];
