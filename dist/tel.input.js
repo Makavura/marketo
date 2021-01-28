@@ -12,9 +12,7 @@ $(document).ready(function () {
                         $('#mktoForm_1048 :input[type="url"]')[index].value = e.target.value;
                     }
                 })
-
             }
         });
-    })
-
+    });
 });
