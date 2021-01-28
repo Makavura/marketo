@@ -4,13 +4,11 @@ $(document).ready(function () {
     */
     $('#webflow :input[type="text"]').keyup(function (e) {
         // console.log($(this));
-
         /* 
         For filtering custom setups e.g date pickers
         Set type in data attribute or in id
         e.g data-type="date-picker"
         */
-
         $('#webflow :input[type="text"]').each(function (index, value) {
             /* 
             Find index of input element
@@ -27,36 +25,25 @@ $(document).ready(function () {
                     /* 
                     In event of multiple date pickers
                     */
-
                     if (document.querySelectorAll('[id^=date]').length == (count + 1)) {
                         $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
                     }
-
-
                 });
             } else {
                 /* 
                 Does not include date in id
                 Matches current selection
                 */
-
                 $('#mktoForm_1048 :input[type="text"]').each(function (count, value) {
                     /* 
                     In event of multiple date pickers
                     */
-
                     if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
-                        console.log(
-                            "TIK"
-                        )
                         $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
-                        return true;
+                        break;
                     }
                 });
             }
-
-
         });
     })
-
 });
