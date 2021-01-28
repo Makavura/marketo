@@ -3,7 +3,7 @@ $(document).ready(function () {
      Numerical based inputs
     */
 
-   document.getElementById("Phone-2").setAttribute('type', 'number');
+//    document.getElementById("Phone-2").setAttribute('type', 'number');
    document.getElementById("leadScore__pc").setAttribute('type', 'number');
 
     $('#webflow :input[type="number"]').change(function (e) {

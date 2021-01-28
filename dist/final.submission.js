@@ -3,6 +3,9 @@ $(document).ready(function () {
        Submission event of first form
        */
     $("#webflow-submit").click(function (e) {
+        
+        $("#mktoForm_1048 :input[type='date']")[0]["value"] = $('#datepicker').val();
+
         e.preventDefault();
 
         /* 
@@ -10,7 +13,6 @@ $(document).ready(function () {
          */
 
         let WFInputs = $("#webflow :input");
-        let MFInputs = $("#mktoForm_1048 :input");
 
         for (let i = 0; i < WFInputs.length; i++) {
 
@@ -36,8 +38,6 @@ $(document).ready(function () {
             } 
     
         }
-
-        $("#mktoForm_1048 :input[type='date']")[0]["value"] = $('#datepicker').val();
 
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
             if (index == ((document.querySelectorAll("textarea").length / 2))) {
