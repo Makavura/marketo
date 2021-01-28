@@ -45,11 +45,9 @@ $(document).ready(function () {
                     In event of multiple date pickers
                     */
 
-                   if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
-
-
+                    if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
                         $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
-
+                        return true;
                     }
                 });
             }
