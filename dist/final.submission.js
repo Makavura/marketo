@@ -19,12 +19,14 @@ $(document).ready(function () {
             if (WFInputs[i]["type"] == 'text') {
                 $('#webflow :input[type="text"]').each(function (index, value) {
                     if ($('#webflow :input[type="text"]')[index]['id'] == value["id"]) {
+                        console.log(index);
                             $('#mktoForm_1048 :input[type="text"]')[index].value = value["value"];
                     }
                 });
             } else if (WFInputs[i]["type"] == 'number') {
                 $('#webflow :input[type="number"]').each(function (index, value) {
                     if ($('#webflow :input[type="number"]')[index]['id'] == value["id"]) {
+                        console.log(index);
                             $('#mktoForm_1048 :input[type="number"]')[index].value = value["value"];
                     }
                 });
@@ -32,6 +34,7 @@ $(document).ready(function () {
             } else if (WFInputs[i]["type"] == 'url') {
                 $('#webflow :input[type="url"]').each(function (index, value) {
                     if ($('#webflow :input[type="url"]')[index]['id'] == value["id"]) {
+                        console.log(index);
                             $('#mktoForm_1048 :input[type="url"]')[index].value = value["value"];
                     }
                 });
