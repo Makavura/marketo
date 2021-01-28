@@ -2,12 +2,9 @@ $(document).ready(function () {
     /* 
      Numerical based inputs
     */
-
-//    document.getElementById("Phone-2").setAttribute('type', 'number');
    document.getElementById("leadScore__pc").setAttribute('type', 'number');
 
     $('#webflow :input[type="number"]').change(function (e) {
-        console.log($(this));
         $('#webflow :input[type="number"]').each(function (i, value) {
            
             if ($('#webflow :input[type="number"]')[i]['id'] == e.target.id) {

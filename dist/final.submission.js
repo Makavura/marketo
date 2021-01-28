@@ -22,7 +22,6 @@ $(document).ready(function () {
                     if ($('#webflow :input[type="text"]')[index]['id'] == value["id"]) {
                         console.log(index);
                         if(index == 3){
-                            return true;
                         }
                         $('#mktoForm_1048 :input[type="text"]')[index].value = value["value"];
                     }
@@ -30,7 +29,6 @@ $(document).ready(function () {
             } else if (WFInputs[i]["type"] == 'number') {
                 $('#webflow :input[type="number"]').each(function (index, value) {
                     if ($('#webflow :input[type="number"]')[index]['id'] == value["id"]) {
-                        console.log(index);
                         $('#mktoForm_1048 :input[type="number"]')[index].value = value["value"];
                     }
                 });
@@ -46,7 +44,6 @@ $(document).ready(function () {
             document.querySelectorAll("textarea")[`${(document.querySelectorAll("textarea").length / 2)}`].value = document.querySelectorAll("textarea")[index].value;
         })
 
-        // console.warn($('#mktoForm_1048'));
     });
 
 });

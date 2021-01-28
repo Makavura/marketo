@@ -20,20 +20,7 @@ $(document).ready(function () {
     $('#marketo-submit').click(function (e) {
         e.preventDefault();
 
-        console.log("CLICKED....HHH")
-    });
-
-    $("#email-form").submit(function (event) {
-        console.warn("Handler for .submit() called.");
-
-        event.preventDefault();
-        return false;
-    });
-
-    $('#webflow-submit').click(function (e) {
-        e.preventDefault();
-
-        console.log("CLICKED....HHH")
+        console.log("SUBMITTING MARKETO FORM")
     });
 
 });
