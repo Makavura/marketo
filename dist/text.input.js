@@ -37,7 +37,9 @@ $(document).ready(function () {
                 $('#mktoForm_1048 :input[type="text"]').each(function (count, value) {
                    
                     if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
-console.log(index, count);
+                        if(count == index){
+                            $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
+                        }
                     }
                 });
             }
