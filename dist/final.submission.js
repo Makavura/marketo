@@ -19,30 +19,25 @@ $(document).ready(function () {
             /* 
             Access their inner values
             */
-            console.log("BISCUITS");
             console.log($(`#${initialFormInputs[i]["id"]}`).attr('type'));
-            console.log($(`#${initialFormInputs[i]["id"]}`));
+ 
             if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'email') {
                 /* 
                 Set email values
                 */
-                $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
-            } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'text') {
+             } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'text') {
                 /* 
                 Set text values
                 */
-                $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
-            } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'password') {
+             } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'password') {
                 /* 
                 Set password values
                 */
-                $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
-            } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'number') {
+             } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'number') {
                 /* 
                 Set number values
                 */
-                $(`#${mirrorFormInputs[i]["id"]}`).attr("value", $(`#${webflow[i]["id"]}`).val());
-            }
+             }
 
         }
         console.log(mirrorFormInputs);
