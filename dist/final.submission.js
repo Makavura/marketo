@@ -20,32 +20,27 @@ $(document).ready(function () {
             Access their inner values
             */
             console.log($(`#${initialFormInputs[i]["id"]}`).attr('type'));
- 
+
             if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'email') {
                 /* 
                 Set email values
                 */
-             } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'text') {
+            } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'text') {
                 /* 
                 Set text values
                 */
-             } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'password') {
+            } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'password') {
                 /* 
                 Set password values
                 */
-             } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'number') {
+            } else if ($(`#${initialFormInputs[i]["id"]}`).attr('type') == 'number') {
                 /* 
                 Set number values
                 */
-             }
+            }
+
 
         }
-        console.log(mirrorFormInputs);
-        console.log(initialFormInputs);
-
-        _mirrorForm = document.getElementsByClassName(_mirrorFormClassName);
-        _mirrorFormData = new FormData(_mirrorForm);
-        console.log(_mirrorFormData);
 
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
 
@@ -56,6 +51,14 @@ $(document).ready(function () {
             document.querySelectorAll("textarea")[`${(document.querySelectorAll("textarea").length / 2)}`].value = document.querySelectorAll("textarea")[index].value;
 
         })
+        
+        console.log(mirrorFormInputs);
+        console.log(initialFormInputs);
+
+        _mirrorFormData = new FormData($("#mktoForm_1048"));
+        console.log(_mirrorFormData);
+
+
         // let _FormData = new FormData($('#mktoForm_1048'));
         // console.log(_FormData);
 
