@@ -3,7 +3,7 @@ $(document).ready(function () {
        Submission event of first form
        */
     $("#webflow-submit").click(function (e) {
-        
+
         $("#mktoForm_1048 :input[type='date']")[0]["value"] = $('#datepicker').val();
 
         e.preventDefault();
@@ -20,14 +20,14 @@ $(document).ready(function () {
                 $('#webflow :input[type="text"]').each(function (index, value) {
                     if ($('#webflow :input[type="text"]')[index]['id'] == value["id"]) {
                         console.log(index);
-                            $('#mktoForm_1048 :input[type="text"]')[index].value = value["value"];
+                        $('#mktoForm_1048 :input[type="text"]')[index].value = value["value"];
                     }
                 });
             } else if (WFInputs[i]["type"] == 'number') {
                 $('#webflow :input[type="number"]').each(function (index, value) {
                     if ($('#webflow :input[type="number"]')[index]['id'] == value["id"]) {
                         console.log(index);
-                            $('#mktoForm_1048 :input[type="number"]')[index].value = value["value"];
+                        $('#mktoForm_1048 :input[type="number"]')[index].value = value["value"];
                     }
                 });
 
@@ -35,11 +35,11 @@ $(document).ready(function () {
                 $('#webflow :input[type="url"]').each(function (index, value) {
                     if ($('#webflow :input[type="url"]')[index]['id'] == value["id"]) {
                         console.log(index);
-                            $('#mktoForm_1048 :input[type="url"]')[index].value = value["value"];
+                        $('#mktoForm_1048 :input[type="url"]')[index].value = $('#webflow :input[type="url"]')[index].value;
                     }
                 });
-            } 
-    
+            }
+
         }
 
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
