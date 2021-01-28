@@ -15,11 +15,24 @@ $(document).ready(function () {
         for (let i = 0; i < WFInputs.length; i++) {
 
             if (WFInputs[i]["type"] == 'text') {
-                MFInputs[i]["value"] = WFInputs[i]["value"];
+                $('#webflow :input[type="text"]').each(function (index, value) {
+                    if ($('#webflow :input[type="text"]')[index]['id'] == value["id"]) {
+                            $('#mktoForm_1048 :input[type="text"]')[index].value = value["value"];
+                    }
+                });
             } else if (WFInputs[i]["type"] == 'number') {
-                MFInputs[i]["value"] = WFInputs[i]["value"];
+                $('#webflow :input[type="number"]').each(function (index, value) {
+                    if ($('#webflow :input[type="number"]')[index]['id'] == value["id"]) {
+                            $('#mktoForm_1048 :input[type="number"]')[index].value = value["value"];
+                    }
+                });
+
             } else if (WFInputs[i]["type"] == 'url') {
-                MFInputs[i]["value"] = WFInputs[i]["value"];
+                $('#webflow :input[type="url"]').each(function (index, value) {
+                    if ($('#webflow :input[type="url"]')[index]['id'] == value["id"]) {
+                            $('#mktoForm_1048 :input[type="url"]')[index].value = value["value"];
+                    }
+                });
             } 
     
         }
