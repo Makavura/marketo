@@ -1,3 +1,5 @@
+import MirrorTextAreaInputs from './textarea.input.js';
+
 $(document).ready(function () {
     /* 
        
@@ -7,6 +9,7 @@ $(document).ready(function () {
     $("#webflow-submit").click(function (e) {
         e.preventDefault();
        
+        MirrorTextAreaInputs();
         // let _FormData = new FormData($('#mktoForm_1048'));
         // console.log(_FormData);
 

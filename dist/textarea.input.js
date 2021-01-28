@@ -1,4 +1,4 @@
-export default function MirrorTextAreaInputs() {
+function MirrorTextAreaInputs() {
 
     document.querySelectorAll("textarea").forEach(function (value, index, parent) {
 
@@ -9,5 +9,5 @@ export default function MirrorTextAreaInputs() {
         document.querySelectorAll("textarea")[`${(document.querySelectorAll("textarea").length / 2)}`].value = document.querySelectorAll("textarea")[index].value;
 
     })
-    
+
 };
