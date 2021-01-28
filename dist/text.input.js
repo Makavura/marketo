@@ -35,12 +35,9 @@ $(document).ready(function () {
                 Matches current selection
                 */
                 $('#mktoForm_1048 :input[type="text"]').each(function (count, value) {
-                    /* 
-                    In event of multiple date pickers
-                    */
+                   
                     if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
-                        $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
-                        break;
+console.log(index, count);
                     }
                 });
             }
