@@ -5,6 +5,7 @@ $(document).ready(function () {
     $("#webflow-submit").click(function (e) {
 
         $("#mktoForm_1048 :input[type='date']")[0]["value"] = $('#datepicker').val();
+        $('#mktoForm_1048 :input[type="url"]')[0].value = $('#webflow :input[type="url"]')[0].value;
 
         e.preventDefault();
 
@@ -31,13 +32,6 @@ $(document).ready(function () {
                     }
                 });
 
-            } else if (WFInputs[i]["type"] == 'url') {
-                $('#webflow :input[type="url"]').each(function (index, value) {
-                    if ($('#webflow :input[type="url"]')[index]['id'] == value["id"]) {
-                        console.log(index);
-                        $('#mktoForm_1048 :input[type="url"]')[index].value = $('#webflow :input[type="url"]')[index].value;
-                    }
-                });
             }
 
         }
