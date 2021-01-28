@@ -3,7 +3,7 @@ $(document).ready(function () {
      Text based inputs
     */
     $('#webflow :input[type="text"]').keyup(function (e) {
-        console.log($(this));
+        // console.log($(this));
 
         /* 
         For filtering custom setups e.g date pickers
@@ -46,6 +46,9 @@ $(document).ready(function () {
                     */
 
                     if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
+                        console.log(
+                            "TIK"
+                        )
                         $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
                         return true;
                     }
