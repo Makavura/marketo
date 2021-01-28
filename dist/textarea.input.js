@@ -1,7 +1,13 @@
-document.querySelectorAll("textarea").forEach(function(value, index, parent){
-    value.onchange(function(e){
+$(document).ready(function () {
 
-        console.warn(e.target);
 
-    });
-})
+    document.querySelectorAll("textarea").forEach(function (value, index, parent) {
+        value.onchange(function (e) {
+
+            console.warn(e.target);
+
+        });
+    })
+
+    
+});
