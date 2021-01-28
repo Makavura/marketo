@@ -11,6 +11,5 @@ $(document).ready(function () {
                     $('#mktoForm_1048 :input[type="number"]')[i].value = e.target.value;
             }
         });
-    })
-
+    });
 });

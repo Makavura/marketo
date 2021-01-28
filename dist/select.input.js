@@ -1,7 +1,6 @@
 $(document).ready(function () {
     /* 
      Selection based inputs
-
      Find parent form class name
      Check 
     */
