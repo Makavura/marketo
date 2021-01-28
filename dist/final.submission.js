@@ -33,7 +33,7 @@ $(document).ready(function () {
             document.querySelectorAll("textarea")[`${(document.querySelectorAll("textarea").length / 2)}`].value = document.querySelectorAll("textarea")[index].value;
         })
 
-        console.warn($('#mktoForm_1048'));
+        // console.warn($('#mktoForm_1048'));
     });
 
 });
