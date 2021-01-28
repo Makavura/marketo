@@ -9,7 +9,6 @@ $(document).ready(function () {
             Find the element in mirror form that matches this index
             Mirror selection
             */
-            console.log(value, i, $('#mktoForm_1048 :input[type="email"]')[i]);
             if ($('#webflow :input[type="email"]')[i]['id'] == e.target.id) {
                 $('#mktoForm_1048 :input[type="email"]')[i].value = e.target.value;
             }

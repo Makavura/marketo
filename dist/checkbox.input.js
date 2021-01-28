@@ -3,7 +3,6 @@ $(document).ready(function () {
    Radio based inputs
   */
     $('#webflow :input[type="checkbox"]').change(function (e) {
-        console.log($(this));
         $('#webflow :input[type="checkbox"]').each(function (i, value) {
             /* 
             Find index of Checkbox
