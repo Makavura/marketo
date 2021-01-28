@@ -38,6 +38,7 @@ $(document).ready(function () {
                    
                     if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
                         if(count == index){
+                            console.log(count, index)
                             $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
                         }
                     }
