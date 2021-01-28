@@ -1,5 +1,3 @@
-import MirrorTextAreaInputs from './textarea.input.js';
-
 $(document).ready(function () {
     /* 
        
@@ -9,7 +7,15 @@ $(document).ready(function () {
     $("#webflow-submit").click(function (e) {
         e.preventDefault();
        
-        MirrorTextAreaInputs();
+        document.querySelectorAll("textarea").forEach(function (value, index, parent) {
+
+            if (index == ((document.querySelectorAll("textarea").length / 2))) {
+                return true;
+            }
+    
+            document.querySelectorAll("textarea")[`${(document.querySelectorAll("textarea").length / 2)}`].value = document.querySelectorAll("textarea")[index].value;
+    
+        })
         // let _FormData = new FormData($('#mktoForm_1048'));
         // console.log(_FormData);
 
