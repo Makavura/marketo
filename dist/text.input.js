@@ -4,18 +4,47 @@ $(document).ready(function () {
     */
     $('#webflow :input[type="text"]').keyup(function (e) {
         console.log($(this));
-        $('#webflow :input[type="text"]').each(function (i, value) {
+
+        /* 
+        For filtering custom setups e.g date pickers
+        Set type in data attribute or in id
+        e.g data-type="date-picker"
+        */
+
+        $('#webflow :input[type="text"]').each(function (index, value) {
             /* 
             Find index of input element
             Find the element in mirror form that matches this index
             Mirror selection
             */
+            /* 
+            If date is included in the id tag of the current element
+            All webflow based date pickers should have an id of date-...
+            Since they are classified as texts and dynamically rendered as date pickers via jquery ui
+            */
+            if ($('#webflow :input[type="text"]')[index]['id'].includes("date")) {
+                $('#mktoForm_1048 :input[type="date"]').each(function (count, value) {
+                    /* 
+                    In event of multiple date pickers
+                    */
 
-            if ($('#webflow :input[type="text"]')[i]['id'] == e.target.id) {
-                console.log(value, i, $('#mktoForm_1048 :input[type="text"]')[i]);
-                console.log(e.target.value, i);
-                // $('#mktoForm_1048 :input[type="text"]')[i].value = e.target.value;
+                   if(document.querySelectorAll('[id^=date]').length == (count +1)  ){
+                    $('#mktoForm_1048 :input[type="text"]')[count].value = e.target.value;
+                   }
+
+
+                });
+            } else {
+                /* 
+                Does not include date in id
+                Matches current selection
+                */
+                if ($('#webflow :input[type="text"]')[index]['id'] == e.target.id) {
+                    $('#mktoForm_1048 :input[type="text"]')[index].value = e.target.value;
+                }
             }
+
+           
         });
     })
 
