@@ -13,8 +13,8 @@ $(document).ready(function () {
 
             if ($('#webflow :input[type="text"]')[i]['id'] == e.target.id) {
                 console.log(value, i, $('#mktoForm_1048 :input[type="text"]')[i]);
-                console.log(e.target.value);
-                $('#mktoForm_1048 :input[type="text"]')[i].value = e.target.value;
+                console.log(e.target.value, i);
+                // $('#mktoForm_1048 :input[type="text"]')[i].value = e.target.value;
             }
         });
     })
