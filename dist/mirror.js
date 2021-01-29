@@ -96,8 +96,11 @@ $(document).ready(function () {
       slide: function (event, ui) {
         console.warn(ui.value);
         console.log($(this).closest('form')[0]["id"])
-        console.log($(`#${$(this).closest('form')[0]["id"]}`).data());
-        console.log(document.getElementById($(this).closest('form')[0]["id"])["dataset"]);
+        for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+          if(key == id){
+            $('#mktoForm_1048 :input[type="range"]')[0].value = ui.value
+          }
+        }
 
       }
   })
