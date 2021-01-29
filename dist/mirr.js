@@ -191,7 +191,7 @@ $(document).ready(function () {
             let marketoSelects = [];
             console.log(e.target);
             $('select').each(function (index, value) {
-
+                console.log($(this)[0]["form"]["id"])
                 if ($(this)[0]["form"]["id"] == entry.webflow) {
                     webflowSelects.push($(this)[0]["id"])
                 } else if ($(this)[0]["form"]["id"] == entry.marketo) {
@@ -209,7 +209,7 @@ $(document).ready(function () {
 
     }
 
-    function setTextAreaValues(entry){
+    function setTextAreaValues(entry) {
         let webflowTextAreas = [];
         let marketoTextAreas = [];
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
@@ -221,11 +221,11 @@ $(document).ready(function () {
             } else if (value["form"]["id"] == entry.marketo) {
                 marketoTextAreas.push(value["id"])
             }
-            webflowTextAreas.forEach(function(value, index){
+            webflowTextAreas.forEach(function (value, index) {
                 console.log(value, marketoTextAreas[index]);
 
                 document.querySelectorAll("textarea").forEach(function (val, indice, parent) {
-                    if(val["form"]["id"] == entry.marketo){
+                    if (val["form"]["id"] == entry.marketo) {
                         val.value = document.getElementById(value).value;
                     }
                 })
@@ -264,14 +264,14 @@ $(document).ready(function () {
                             if ($(`#${form.webflow} :input[type="text"]`)[index]['id'] == value["id"]) {
                                 if ((index + 1) == $(`#${form.webflow} :input[type="text"]`).length) {
                                     return;
-                                }                                
+                                }
                                 $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
                             }
                         });
                     } else if (WFInputs[i]["type"] == 'number') {
                         $(`#${form.webflow} :input[type="number"]`).each(function (index, value) {
                             if ($(`#${form.webflow} :input[type="number"]`)[index]['id'] == value["id"]) {
-                                    $(`#${form.marketo} :input[type="number"]`)[index].value = value["value"];
+                                $(`#${form.marketo} :input[type="number"]`)[index].value = value["value"];
                             }
                         });
                     }
