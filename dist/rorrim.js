@@ -22,6 +22,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
         $(value).change(function (e) {
+            console.log(e.target.value);
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
     });
