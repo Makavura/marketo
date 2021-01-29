@@ -38,7 +38,7 @@ $(document).ready(function () {
   Select
   */
   document.querySelectorAll('[marketo="select"]').forEach(function (value, index) {
-    $(value).keyup(function (e) {
+    $(value).change(function (e) {
       console.log(e.target.value, index);
     })
   });
@@ -46,7 +46,7 @@ $(document).ready(function () {
   Radio
   */
   document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
-    $(value).keyup(function (e) {
+    $(value).change(function (e) {
       console.log(e.target.value, index);
     })
   });
@@ -54,7 +54,7 @@ $(document).ready(function () {
   Checkbox
   */
   document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
-    $(value).keyup(function (e) {
+    $(value).change(function (e) {
       console.log(e.target.value, index);
     })
   });
@@ -75,10 +75,26 @@ $(document).ready(function () {
     })
   });
   /* 
+  Url
+  */
+  document.querySelectorAll('[marketo="url"]').forEach(function (value, index) {
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
+  });
+  /* 
+  Slider
+  */
+  document.querySelectorAll('[marketo="slider"]').forEach(function (value, index) {
+    $(value).change(function (e) {
+      console.log(e.target.value, index);
+    })
+  });
+  /* 
   Submit
   */
   document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
-    $(value).keyup(function (e) {
+    $(value).click(function (e) {
       console.log(e.target.value, index);
     })
   });
