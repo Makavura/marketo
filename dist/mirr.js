@@ -211,7 +211,9 @@ $(document).ready(function () {
     function setTextAreaValues(entry){
         let webflowTextAreas = [];
         let marketoTextAreas = [];
-
+        document.querySelectorAll("textarea").forEach(function (value, index, parent) {
+            console.log(parent)
+        })
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
             if (value["form"]["id"] == entry.webflow) {
                 webflowTextAreas.push(value["id"])
@@ -220,7 +222,12 @@ $(document).ready(function () {
             }
             webflowTextAreas.forEach(function(value, index){
                 console.log(value, marketoTextAreas[index]);
-                document.getElementById(marketoTextAreas[index]).value  = document.getElementById(value).value;
+
+                document.querySelectorAll("textarea").forEach(function (val, indice, parent) {
+                    if(val["form"]["id"] == entry.marketo){
+                        val.value = document.getElementById(value).value;
+                    }
+                })
             })
         });
     }
