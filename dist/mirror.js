@@ -51,8 +51,12 @@ $(document).ready(function () {
     $(value).change(function (e) {
       if ($(this)[0]["form"]["id"] == e.target.form.id) {
         
-        console.log($(this)[0]["id"])
-        _web.push($(this)[0]["id"]);
+        document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
+          if ($(this)[0]["form"]["id"] == e.target.form.id) {
+            console.log($(this)[0]["id"])
+            _web.push($(this)[0]["id"]);
+          }
+        })
 
         for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if (key == "id") {
