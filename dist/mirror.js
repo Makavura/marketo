@@ -175,10 +175,10 @@ $(document).ready(function () {
                     _.push($(this)[0]["id"]);
                   }
                 })
-                for (let i = 0; i < _web.length; i++) {
-                  if (_web[i] == e.target.id) {
-                    document.getElementById(value)[i].value = e.target.value;
-                    document.getElementById(value)[i].setAttribute("selected", "selected");
+                for (let count = 0; count < _web.length; count++) {
+                  if (_web[count] == e.target.id) {
+                    document.getElementById(value)[count].value = e.target.value;
+                    document.getElementById(value)[count].setAttribute("selected", "selected");
                   }
                 }
 
