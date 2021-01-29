@@ -51,10 +51,10 @@ $(document).ready(function () {
     $(value).change(function (e) {
       if ($(this)[0]["form"]["id"] == e.target.form.id) {
         
-        document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
-          if ($(this)[0]["form"]["id"] == e.target.form.id) {
-            console.log($(this)[0]["id"])
-            _web.push($(this)[0]["id"]);
+        document.querySelectorAll('[marketo="radio"]').forEach(function (element, indice) {
+          if ($(element)[0]["form"]["id"] == e.target.form.id) {
+            console.log($(element)[0]["id"])
+            _web.push($(element)[0]["id"]);
           }
         })
 
