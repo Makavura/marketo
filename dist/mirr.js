@@ -187,24 +187,17 @@ $(document).ready(function () {
     function setSelectChangeEvents(entry) {
 
         $('select').change(function (e) {
-            let webflowSelects = [];
-            let marketoSelects = [];
-            console.log(e.target);
             $('select').each(function (index, value) {
-                console.log($(this)[0]["form"]["id"])
                 if ($(this)[0]["form"]["id"] == entry.webflow) {
-                    webflowSelects.push($(this)[0]["id"])
-                } else if ($(this)[0]["form"]["id"] == entry.marketo) {
-                    marketoSelects.push($(this)[0]["id"]);
-                }
+                    if($(this)[0]["id"] == e.target.id) { // each select input should have unique id
+                        console.log(index, value);
+                    }
+                } 
             });
 
-            webflowSelects.forEach(function (index, value) {
-                if (value == e.target.id) {
-                    document.getElementById(marketoSelects[index]).value = e.target.value;
-                    document.getElementById(marketoSelects[index]).setAttribute("selected", "selected");
-                }
-            });
+                    // document.getElementById(marketoSelects[index]).value = e.target.value;
+                    // document.getElementById(marketoSelects[index]).setAttribute("selected", "selected");
+
         });
 
     }
