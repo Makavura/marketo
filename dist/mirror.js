@@ -42,7 +42,41 @@ $(document).ready(function () {
       }
     })
   });
+  /* 
+  Radio
+  */
+  document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
+    let _web = [];
+    let _ = [];
+    $(value).change(function (e) {
+      if ($(this)[0]["form"]["id"] == e.target.form.id) {
+        _web.push($(this)[0]["id"]);
 
+        for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+          if (key == "id") {
+
+            document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
+              if ($(this)[0]["form"]["id"] == val) {
+                _.push($(this)[0]["id"]);
+              }
+            })
+
+            for (let count = 0; count < _web.length; count++) {
+              if (_web[count] == e.target.id) {
+                if ($(this).is(":checked")) {
+                  $(`#${val} :input[type="radio"]`)[count].checked = true;
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  $(`#${val} :input[type="radio"]`)[count].checked = false;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    })
+  });
   /* 
   Select inputs mirrored on change
   */
@@ -135,24 +169,6 @@ $(document).ready(function () {
   document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
     $(value).click(function (e) {
       console.log(e.target.value, index);
-    })
-  });
-
-  /* 
-Radio
-*/
-  document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
-    $(value).change(function (e) {
-      for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-        if (key == "id") {
-            if ($(this).is(":checked")) {
-              $(`#${val} :input[type="radio"]`)[index].checked = true;
-            }
-            else if ($(this).is(":not(:checked)")) {
-              $(`#${val} :input[type="radio"]`)[index].checked = false;
-            }
-        }
-      }
     })
   });
 
