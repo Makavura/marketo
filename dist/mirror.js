@@ -113,6 +113,45 @@ $(document).ready(function () {
     });
   })
   /* 
+  Checkbox
+  */
+  document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
+    let _web = [];
+    let _ = [];
+    $(value).change(function (e) {
+      if ($(this)[0]["form"]["id"] == e.target.form.id) {
+        document.querySelectorAll('[marketo="checkbox"]').forEach(function (element, indice) {
+          if ($(element)[0]["form"]["id"] == e.target.form.id) {
+            _web.push($(element)[0]["id"]);
+          }
+        })
+
+        for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+          if (key == "id") {
+
+            document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
+              if ($(value)[0]["form"]["id"] == val) {
+                _.push($(this)[0]["id"]);
+              }
+            })
+
+            for (let count = 0; count < _web.length; count++) {
+              if (_web[count] == e.target.id) {
+                if ($(this).is(":checked")) {
+                  $(`#${val} :input[type="checkbox"]`)[count].checked = true;
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  $(`#${val} :input[type="checkbox"]`)[count].checked = false;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    })
+  });
+  /* 
   Email
   */
   document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
@@ -176,46 +215,6 @@ $(document).ready(function () {
     })
   });
 
-
-  /* 
-  Checkbox
-  */
-  document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
-    let _web = [];
-    let _ = [];
-    $(value).change(function (e) {
-      if ($(this)[0]["form"]["id"] == e.target.form.id) {
-        document.querySelectorAll('[marketo="checkbox"]').forEach(function (element, indice) {
-          if ($(element)[0]["form"]["id"] == e.target.form.id) {
-            _web.push($(element)[0]["id"]);
-          }
-        })
-
-        for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-          if (key == "id") {
-
-            document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
-              if ($(value)[0]["form"]["id"] == val) {
-                _.push($(this)[0]["id"]);
-              }
-            })
-
-            for (let count = 0; count < _web.length; count++) {
-              if (_web[count] == e.target.id) {
-                if ($(this).is(":checked")) {
-                  $(`#${val} :input[type="checkbox"]`)[count].checked = true;
-                }
-                else if ($(this).is(":not(:checked)")) {
-                  $(`#${val} :input[type="checkbox"]`)[count].checked = false;
-                }
-              }
-            }
-
-          }
-        }
-      }
-    })
-  });
   /* 
   Textarea
   */
