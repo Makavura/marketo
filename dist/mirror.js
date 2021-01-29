@@ -22,7 +22,9 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
     console.log(value, index);
-    console.log($(value));
+    $(value).change(function (e) {
+      console.log(e);
+    })
   });
 
   /* 
