@@ -42,18 +42,41 @@ $(document).ready(function () {
       }
     })
   });
-  /* 
-  Select
-  */
-  document.querySelectorAll('[marketo="select"]').forEach(function (value, index) {
-    $(value).change(function (e) {
-      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-        if (key == "id") {
 
+  /* 
+  Select inputs mirrored on change
+  */
+  $('select').change(function (e) {
+    let _web = [];
+    let _ = [];
+    $('select').each(function (index, value) {
+      if ($(this)[0]["form"]["id"] == e.target.form.id) {
+        _web.push($(this)[0]["id"]);
+        if ($(this)[0]["id"] == e.target.id) {
+          $('select').each(function (i, element) {
+            for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+              if (key == "id") {
+                $('select').each(function (indice, val) {
+                  if ($(this)[0]["form"]["id"] == value) {
+                    _.push($(this)[0]["id"]);
+                  }
+                })
+                for (let count = 0; count < _web.length; count++) {
+                  if (_web[count] == e.target.id) {
+                    document.getElementById(_[count]).value = e.target.value;
+                    document.getElementById(_[count]).setAttribute("selected", "selected");
+                  }
+                }
+
+              }
+            }
+          })
         }
       }
-    })
-  });
+    });
+  })
+
+
   /* 
   Radio
   */
@@ -153,40 +176,6 @@ $(document).ready(function () {
       console.log(e.target.value, index);
     })
   });
-
-
-  /* 
-                Select inputs mirrored on change
-        */
-  $('select').change(function (e) {
-    let _web = [];
-    let _ = [];
-    $('select').each(function (index, value) {
-      if ($(this)[0]["form"]["id"] == e.target.form.id) {
-        _web.push($(this)[0]["id"]);
-        if ($(this)[0]["id"] == e.target.id) { 
-          $('select').each(function (i, element) {
-            for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-              if (key == "id") {
-                $('select').each(function (indice, val) {
-                  if ($(this)[0]["form"]["id"] == value) {
-                    _.push($(this)[0]["id"]);
-                  }
-                })
-                for (let count = 0; count < _web.length; count++) {
-                  if (_web[count] == e.target.id) {
-                    document.getElementById(_[count]).value = e.target.value;
-                    document.getElementById(_[count]).setAttribute("selected", "selected");
-                  }
-                }
-
-              }
-            }
-          })
-        }
-      }
-    });
-  })
 
 });
 
