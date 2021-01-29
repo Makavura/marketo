@@ -253,11 +253,10 @@ $(document).ready(function () {
                     if (WFInputs[i]["type"] == 'text') {
                         $(`#${form.webflow} :input[type="text"]`).each(function (index, value) {
                             if ($(`#${form.webflow} :input[type="text"]`)[index]['id'] == value["id"]) {
-                                if (index == $(`#${form.webflow} :input[type="text"]`).length) {
+                                if ((index + 1) == $(`#${form.webflow} :input[type="text"]`).length) {
                                     return;
                                 }                                
                                 $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
-                                console.log(value["value"], value.value)
                             }
                         });
                     } else if (WFInputs[i]["type"] == 'number') {
