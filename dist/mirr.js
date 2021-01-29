@@ -7,10 +7,10 @@ $(document).ready(function () {
     */
     const forms = [
         {
-            webflow: "webflow",
-            webflow_submit: "webflow-submit",
-            marketo: "mktoForm_1048",
-            others: [ // loop through these object elements and alter type of inputs after document is ready programmatically
+            webflow: "webflow", // id of custom form 
+            webflow_submit: "webflow-submit", // id of submit button in custom form
+            marketo: "mktoForm_1048", // form onto which to mirror values
+            others: [ //  alter type of inputs  programmatically
                 {
                     "urls": [
                         'Website-2',  // ids of elements that are to be set as urls, in order of occurence in custom form whose structure mimicks the marketo form
@@ -32,10 +32,10 @@ $(document).ready(function () {
     FORM SETUP
     To be presented as an array of objects e.g forms = [ 
         { 
-            webflow: "webflow", 
-            webflow_submit: "webflow-submit", 
-            marketo: "mkto_Form1048",
-            others: [ // loop through these object elements and alter type of inputs after document is ready programmatically
+            webflow: "", // id of custom form 
+            webflow_submit: "",  // id of submit button in custom form
+            marketo: "", // form onto which to mirror values
+            others: [ //  alter type of inputs  programmatically in order of occurence in custom form whose structure mimicks marketo's form
                 {
                     "urls": [
                         '', '' // ids of elements that are to be set as urls
@@ -43,7 +43,7 @@ $(document).ready(function () {
                     "tels": [
                         '','' // ids of elements that are to be set as type of tel
                     ],
-                    "dates": [
+                    "datepickers": [
                         '', '' // ids of text input elements to be set as datepickers via jquery ui
                     ],
                     "sliders": [
@@ -88,6 +88,9 @@ $(document).ready(function () {
     */
 
     function setUrlType(urls) {
+        /* 
+        Alter input type to fit type of element being mirrored
+        */
         if (urls.length !== 0) {
             urls.forEach(function (value, index) {
                 document.getElementById(`${value}`).setAttribute('type', 'url');
@@ -96,6 +99,9 @@ $(document).ready(function () {
     }
 
     function setTelType(tels) {
+        /* 
+        Alter input type to fit type of element being mirrored
+        */
         if (tels.length !== 0) {
             tels.forEach(function (value, index) {
                 document.getElementById(`${value}`).setAttribute('type', 'url');
@@ -104,6 +110,9 @@ $(document).ready(function () {
     }
 
     function setSliderEvents(sliders, marketo) {
+        /* 
+        Sliders mirrored on change
+        */
         if (sliders.length !== 0) {
             sliders.forEach(function (value, index) {
                 $(document).ready(function () {
@@ -120,6 +129,9 @@ $(document).ready(function () {
     }
 
     function setDatePickerEvents(datepickers) {
+        /* 
+        Date pickers mirrored on change
+        */
         if (datepickers.length !== 0) {
             datepickers.forEach(function (value, index) {
                 $(document).ready(function () {
@@ -185,7 +197,9 @@ $(document).ready(function () {
     }
 
     function setSelectChangeEvents(entry) {
-
+/* 
+        Select inputs mirrored on change
+*/
         $('select').change(function (e) {
             let _web = [];
             let _ = [];
@@ -212,6 +226,9 @@ $(document).ready(function () {
     }
 
     function setTextAreaValues(entry) {
+        /* 
+        Values mirrored on form submission of custom form
+        */
         let webflowTextAreas = [];
         let marketoTextAreas = [];
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
@@ -232,10 +249,16 @@ $(document).ready(function () {
 
 
     function setSubmissionEvents(mirrors) {
+        /* 
+        Dynamic Setup of Dual Forms
+        */
         mirrors.forEach(function (form, index) {
             setChangeEvents(form); // Email, Checkbox, Radio, Url Mirrored on Change
-            setSelectChangeEvents(form); // Select
+            setSelectChangeEvents(form); // Select Mirrored on Change
             form.others.forEach(function (element, index) {
+                /* 
+                Configure elements being mimicked that have no native support in custom form at this time of writing
+                */
                 setUrlType(element.urls); // urls
                 setSliderEvents(element.sliders, form.marketo); // sliders
                 setTelType(element.tels); // tels
