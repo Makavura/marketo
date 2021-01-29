@@ -220,9 +220,29 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
     $(value).keyup(function (e) {
-      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+      let _web = [];
+      let _ = [];
+
+      document.querySelectorAll('[marketo="textarea"]').forEach(function (element, indice) {
+        if ($(element)[0]["form"]["id"] == e.target.form.id) {
+          _web.push($(element)[0]["id"]);
+        }
+      })
+
+      for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $(`#${value} :input[type="textarea"]`)[index].value = e.target.value;
+      
+          document.querySelectorAll('[marketo="textarea"]').forEach(function (el, ind) {
+            if ($(el)[0]["form"]["id"] == e.target.form.id) {
+              _web.push($(el)[0]["id"]);
+            }
+          })
+          for (let count = 0; count < _web.length; count++) {
+            if (_web[count] == e.target.id) {
+              document.getElementById(_[count]).value = e.target.value;
+            }
+          }
+
         }
       }
     })
