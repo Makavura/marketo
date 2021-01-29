@@ -13,6 +13,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
+            console.log(document.querySelector(`${e.target.id}`).dataset);
             document.getElementById(`${$(this).data('marketoid')}`).value = e.target.value;
         })
     });
@@ -120,7 +121,7 @@ $(document).ready(function () {
     document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
         $(value).click(function (e) {
             e.preventDefault();
-            $(`#$`).submit();
+            $(`#${$(this).data('marketoid')}`).submit();
         })
     });
 
