@@ -91,6 +91,14 @@ $(document).ready(function () {
     })
   });
   /* 
+  Date
+  */
+  document.querySelectorAll('[marketo="date"]').forEach(function (value, index) {
+    $(value).change(function (e) {
+      console.log(e.target.value, index);
+    })
+  });
+  /* 
   Submit
   */
   document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
