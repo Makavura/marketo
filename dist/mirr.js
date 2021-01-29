@@ -189,6 +189,7 @@ $(document).ready(function () {
         $('select').change(function (e) {
             let webflowSelects = [];
             let marketoSelects = [];
+            console.log(e.target);
             $('select').each(function (index, value) {
 
                 if ($(this)[0]["form"]["id"] == entry.webflow) {
@@ -277,7 +278,7 @@ $(document).ready(function () {
                 }
 
                 setTextAreaValues(form); // textarea
-                $(`#${marketo}`).submit();
+                // $(`#${marketo}`).submit();
 
             });
 
