@@ -67,10 +67,9 @@ $(document).ready(function () {
                     document.getElementById(_[count]).setAttribute("selected", "selected");
                   }
                 }
-
               }
             }
-          })
+          });
         }
       }
     });
@@ -120,7 +119,7 @@ $(document).ready(function () {
     $(value).keyup(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $(`#m${value} :input[type="email"]`)[index].value = e.target.value;
+          $(`#${value} :input[type="email"]`)[index].value = e.target.value;
         }
       }
     })
