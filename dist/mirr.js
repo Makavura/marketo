@@ -218,8 +218,8 @@ $(document).ready(function () {
             } else if (value["form"]["id"] == entry.marketo) {
                 marketoTextAreas.push(value["id"])
             }
-            webflowTextAreas.forEach(function(index, value){
-                console.log(value);
+            webflowTextAreas.forEach(function(value, index){
+                console.log(value, marketoTextAreas[index]);
                 document.getElementById(marketoTextAreas[index]).value  = document.getElementById(value).value;
             })
         });
