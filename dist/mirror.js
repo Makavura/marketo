@@ -96,7 +96,7 @@ $(document).ready(function () {
       slide: function (event, ui) {
         console.warn(ui.value);
         console.log($(this).closest('form')[0]["id"])
-        console.log(document.getElementById($(this).closest('form')[0]["id"])).dataset;
+        console.log(document.getElementById($(this).closest('form')[0]["id"]))["dataset"];
       }
   })
   });
