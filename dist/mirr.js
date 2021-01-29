@@ -252,20 +252,16 @@ $(document).ready(function () {
                     if (WFInputs[i]["type"] == 'text') {
                         $(`#${form.webflow} :input[type="text"]`).each(function (index, value) {
                             if ($(`#${form.webflow} :input[type="text"]`)[index]['id'] == value["id"]) {
-                                if (index == 3) {
+                                if (index == $(`#${form.webflow} :input[type="text"]`).length) {
                                     return;
                                 }                                
-                                if(index !== undefined){
-                                    $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
-                                }
+                                $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
                             }
                         });
                     } else if (WFInputs[i]["type"] == 'number') {
                         $(`#${webflow} :input[type="number"]`).each(function (index, value) {
                             if ($(`#${webflow} :input[type="number"]`)[index]['id'] == value["id"]) {
-                                if($(`#${marketo} :input[type="number"]`)[index].value !== undefined ){
                                     $(`#${marketo} :input[type="number"]`)[index].value = value["value"];
-                                }
                             }
                         });
                     }
