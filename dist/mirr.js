@@ -201,7 +201,7 @@ $(document).ready(function () {
                         })
                         for (let i = 0; i < _.length; i++) {
                             if (_[i] == e.target.id) {
-                                console.log(_[i], e.target.id, _)
+                                console.log(_[i], e.target.id, _, document.getElementById(_[i]))
                                 document.getElementById(_[i]).value = e.target.value;
                                 document.getElementById(_[i]).setAttribute("selected", "selected");
                             }
