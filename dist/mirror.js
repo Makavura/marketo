@@ -56,7 +56,7 @@ $(document).ready(function () {
           if (key == "id") {
 
             document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
-              if ($(this)[0]["form"]["id"] == val) {
+              if ($(value)[0]["form"]["id"] == val) {
                 _.push($(this)[0]["id"]);
               }
             })
