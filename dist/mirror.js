@@ -143,35 +143,27 @@ Radio
 */
   document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
     $(value).change(function (e) {
-      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+      for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('select').each(function (indice, val) {
-            if ($(this)[0]["form"]["id"] == value) {
-              _.push($(this)[0]["id"]);
-            }
-          })
-          for (let count = 0; count < _web.length; count++) {
-            if (_web[count] == e.target.id) {
-              console.log(_[count]);
-            }
-          }
+
+          const initialformid = $(this).closest('form')[0]["id"]
+          $(`#${initialformid} :input[type="radio"]`).change(function (e) {
+            $(`#${initialformid} :input[type="radio"]`).each(function (i, value) {
+              if ($(`#${initialformid} :input[type="radio"]`)[i]['id'] == e.target.id) {
+                if ($(this).is(":checked")) {
+                  $(`#${val} :input[type="radio"]`)[i].checked = true;
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  $(`#${val} :input[type="radio"]`)[i].checked = false;
+                }
+              }
+            });
+          });
+
         }
       }
     })
   });
-
-//   $(`#${entry.webflow} :input[type="radio"]`).change(function (e) {
-//     $(`#${entry.webflow} :input[type="radio"]`).each(function (i, value) {
-//         if ($(`#${entry.webflow} :input[type="radio"]`)[i]['id'] == e.target.id) {
-//             if ($(this).is(":checked")) {
-//                 $(`#${entry.marketo} :input[type="radio"]`)[i].checked = true;
-//             }
-//             else if ($(this).is(":not(:checked)")) {
-//                 $(`#${entry.marketo} :input[type="radio"]`)[i].checked = false;
-//             }
-//         }
-//     });
-// });
 
 
   /* 
