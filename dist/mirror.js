@@ -49,11 +49,9 @@ $(document).ready(function () {
     let _web = [];
     let _ = [];
     $(value).change(function (e) {
-      if ($(this)[0]["form"]["id"] == e.target.form.id) {
-        
+      if ($(this)[0]["form"]["id"] == e.target.form.id) {        
         document.querySelectorAll('[marketo="radio"]').forEach(function (element, indice) {
           if ($(element)[0]["form"]["id"] == e.target.form.id) {
-            console.log($(element)[0]["id"])
             _web.push($(element)[0]["id"]);
           }
         })
@@ -70,11 +68,9 @@ $(document).ready(function () {
             for (let count = 0; count < _web.length; count++) {
               if (_web[count] == e.target.id) {
                 if ($(this).is(":checked")) {
-                  console.log(count, $(this))
                   $(`#${val} :input[type="radio"]`)[count].checked = true;
                 }
                 else if ($(this).is(":not(:checked)")) {
-                  console.log(count, $(this))
                   $(`#${val} :input[type="radio"]`)[count].checked = false;
                 }
               }
