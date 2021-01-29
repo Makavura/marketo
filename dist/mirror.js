@@ -12,7 +12,7 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
     $(value).keyup(function (e) {
-      console.log($(this).attr());
+      console.log($(this).data());
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
           $(`#${value} :input[type="text"]`)[index].value = e.target.value;
