@@ -257,6 +257,7 @@ $(document).ready(function () {
                                     return;
                                 }                                
                                 $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
+                                console.log(value["value"], value.value)
                             }
                         });
                     } else if (WFInputs[i]["type"] == 'number') {
