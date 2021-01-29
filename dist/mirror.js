@@ -145,21 +145,12 @@ Radio
     $(value).change(function (e) {
       for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-
-          const initialformid = $(this).closest('form')[0]["id"]
-          $(`#${initialformid} :input[type="radio"]`).change(function (e) {
-            $(`#${initialformid} :input[type="radio"]`).each(function (i, value) {
-              if ($(`#${initialformid} :input[type="radio"]`)[i]['id'] == e.target.id) {
-                if ($(this).is(":checked")) {
-                  $(`#${val} :input[type="radio"]`)[i].checked = true;
-                }
-                else if ($(this).is(":not(:checked)")) {
-                  $(`#${val} :input[type="radio"]`)[i].checked = false;
-                }
-              }
-            });
-          });
-
+            if ($(this).is(":checked")) {
+              $(`#${val} :input[type="radio"]`)[i].checked = true;
+            }
+            else if ($(this).is(":not(:checked)")) {
+              $(`#${val} :input[type="radio"]`)[i].checked = false;
+            }
         }
       }
     })
