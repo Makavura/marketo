@@ -142,7 +142,7 @@ $(document).ready(function () {
                 $(`#${entry.webflow} :input[type="email"]`).each(function (i, value) {
                     console.log(i, value, e.target.id, e.target.value);
                     if ($(`#${entry.webflow} :input[type="email"]`)[i]['id'] == e.target.id) {
-                        console.log($(`#${entry.marketo} :input[type="email"]`)[i], $(`#${entry.marketo} :input[type="email"]`)[i]["value"]);
+                        console.log($(`#${entry.marketo} :input[type="email"]`)[i]);
                         $(`#${entry.marketo} :input[type="email"]`)[i].value = e.target.value;
                     }
                 });
