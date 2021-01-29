@@ -233,8 +233,8 @@ $(document).ready(function () {
       for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
 
-          document.querySelectorAll('[marketo="textarea"]').forEach(function (el, ind) {
-            if ($(el)[0]["form"]["id"] == e.target.form.id) {
+          document.querySelectorAll('textarea').forEach(function (el, ind) {
+            if ($(el)[0]["form"]["id"] == val) {
               _.push($(el)[0]["id"]);
             }
           })
