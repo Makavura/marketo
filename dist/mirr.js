@@ -140,6 +140,7 @@ $(document).ready(function () {
         $(document).ready(function () {
             $(`#${entry.webflow} :input[type="email"]`).change(function (e) {
                 $(`#${entry.webflow} :input[type="email"]`).each(function (i, value) {
+                    console.log(i, value, e.target.id, e.target.value);
                     if ($(`#${entry.webflow} :input[type="email"]`)[i]['id'] == e.target.id) {
                         $(`#${entry.marketo} :input[type="email"]`)[i].value = e.target.value;
                     }
