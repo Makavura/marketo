@@ -49,7 +49,7 @@ $(document).ready(function () {
     $(value).change(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="select"]')[index].value = e.target.value;
+
         }
       }
     })
