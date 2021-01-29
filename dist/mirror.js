@@ -146,10 +146,10 @@ Radio
       for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
             if ($(this).is(":checked")) {
-              $(`#${val} :input[type="radio"]`)[i].checked = true;
+              $(`#${val} :input[type="radio"]`)[index].checked = true;
             }
             else if ($(this).is(":not(:checked)")) {
-              $(`#${val} :input[type="radio"]`)[i].checked = false;
+              $(`#${val} :input[type="radio"]`)[index].checked = false;
             }
         }
       }
