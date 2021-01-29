@@ -13,7 +13,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
-            console.log(document.querySelector(`${e.target.id}`).dataset);
+            console.log(document.querySelector(e.target.id).dataset);
             document.getElementById(`${$(this).data('marketoid')}`).value = e.target.value;
         })
     });
