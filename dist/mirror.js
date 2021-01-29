@@ -97,7 +97,7 @@ $(document).ready(function () {
         console.warn(ui.value);
         console.log($(this).closest('form')[0]["id"])
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-          if(key == id){
+          if(key == "id"){
             $('#mktoForm_1048 :input[type="range"]')[0].value = ui.value
           }
         }
