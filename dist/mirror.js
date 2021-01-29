@@ -24,7 +24,7 @@ $(document).ready(function () {
     $(value).keyup(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="text"]')[index].value = e.target.value;
+          $(`#${value} :input[type="text"]`)[index].value = e.target.value;
         }
       }
     })
@@ -37,7 +37,7 @@ $(document).ready(function () {
     $(value).keyup(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="number"]')[index].value = e.target.value;
+          $(`#${value} :input[type="number"]`)[index].value = e.target.value;
         }
       }
     })
@@ -61,7 +61,7 @@ $(document).ready(function () {
     $(value).change(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="radio"]')[index].value = e.target.value;
+
         }
       }
     })
@@ -73,7 +73,7 @@ $(document).ready(function () {
     $(value).change(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="checkbox"]')[index].value = e.target.value;
+
         }
       }
     })
@@ -85,7 +85,7 @@ $(document).ready(function () {
     $(value).keyup(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="textarea"]')[index].value = e.target.value;
+          $(`#${value} :input[type="textarea"]`)[index].value = e.target.value;
         }
       }
     })
@@ -97,7 +97,7 @@ $(document).ready(function () {
     $(value).keyup(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="email"]')[index].value = e.target.value;
+          $(`#m${value} :input[type="email"]`)[index].value = e.target.value;
         }
       }
     })
@@ -109,7 +109,7 @@ $(document).ready(function () {
     $(value).keyup(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="url"]')[index].value = e.target.value;
+          $(`#${value} :input[type="url"]`)[index].value = e.target.value;
         }
       }
     })
@@ -127,7 +127,7 @@ $(document).ready(function () {
       slide: function (event, ui) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if (key == "id") {
-            $('#mktoForm_1048 :input[type="range"]')[index].value = ui.value
+            $(`#${value} :input[type="range"]`)[index].value = ui.value
           }
         }
       }
@@ -140,7 +140,7 @@ $(document).ready(function () {
     $(value).change(function (e) {
       for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
         if (key == "id") {
-          $('#mktoForm_1048 :input[type="date"]')[index].value = e.target.value;
+          $(`#${value} :input[type="date"]`)[index].value = e.target.value;
         }
       }
     })
@@ -160,6 +160,35 @@ $(document).ready(function () {
         */
   $('select').change(function (e) {
     console.log(e.target.form.id)
+
+    let _web = [];
+    let _ = [];
+    $('select').each(function (index, value) {
+      if ($(this)[0]["form"]["id"] == e.target.form.id) {
+        _web.push($(this)[0]["id"]);
+        if ($(this)[0]["id"] == e.target.id) { // each select input should have unique id
+          $('select').each(function (i, element) {
+            for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+              if (key == "id") {
+                $('select').each(function (indice, val) {
+                  if ($(this)[0]["form"]["id"] == value) {
+                    _.push($(this)[0]["id"]);
+                  }
+                })
+                for (let i = 0; i < _web.length; i++) {
+                  if (_web[i] == e.target.id) {
+                    document.getElementById(value)[i].value = e.target.value;
+                    document.getElementById(value)[i].setAttribute("selected", "selected");
+                  }
+                }
+
+              }
+            }
+          })
+        }
+      }
+    });
+
     $('select').each(function (index, value) {
 
       if (value["id"] = e.target.id) {
