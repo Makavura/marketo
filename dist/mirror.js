@@ -86,7 +86,7 @@ $(document).ready(function () {
   Slider
   */
   document.querySelectorAll('[marketo="slider"]').forEach(function (value, index) {
-    console.log(value);
+    console.log($(value).slider("value"));
     $(value).change(function (e) {
       console.log(e.target.value, index);
     })
