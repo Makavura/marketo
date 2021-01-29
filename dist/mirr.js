@@ -219,6 +219,7 @@ $(document).ready(function () {
                 marketoTextAreas.push(value["id"])
             }
             webflowTextAreas.forEach(function(index, value){
+                console.log(value);
                 document.getElementById(marketoTextAreas[index]).value  = document.getElementById(value).value;
             })
         });
