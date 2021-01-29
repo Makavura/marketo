@@ -94,7 +94,7 @@ $(document).ready(function () {
       min: 0,
       max: 100,
       slide: function (event, ui) {
-        console.warn(ui.value);
+        console.warn(ui.value, ui, event.form);
         console.log($(this)[0].form)
       }
   })
