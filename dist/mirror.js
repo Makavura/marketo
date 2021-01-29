@@ -152,6 +152,35 @@ $(document).ready(function () {
     })
   });
   /* 
+  Textarea
+  */
+  document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
+
+    $(value).keyup(function (e) {
+      let _web = [];
+      let _ = [];
+      document.querySelectorAll('[marketo="textarea"]').forEach(function (element, indice) {
+        if ($(element)[0]["form"]["id"] == e.target.form.id) {
+          _web.push($(element)[0]["id"]);
+        }
+      })
+      for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+        if (key == "id") {
+          document.querySelectorAll('textarea').forEach(function (el, ind) {
+            if ($(el)[0]["form"]["id"] == val) {
+              _.push($(el)[0]["id"]);
+            }
+          })
+          for (let count = 0; count < _web.length; count++) {
+            if (_web[count] == e.target.id) {
+              document.getElementById(_[count]).value = e.target.value;
+            }
+          }
+        }
+      }
+    })
+  });
+  /* 
   Email
   */
   document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
@@ -214,43 +243,6 @@ $(document).ready(function () {
       console.log(e.target.value, index);
     })
   });
-
-  /* 
-  Textarea
-  */
-  document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
-
-    $(value).keyup(function (e) {
-      let _web = [];
-      let _ = [];
-
-      document.querySelectorAll('[marketo="textarea"]').forEach(function (element, indice) {
-        if ($(element)[0]["form"]["id"] == e.target.form.id) {
-          _web.push($(element)[0]["id"]);
-        }
-      })
-
-      for (const [key, val] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-        if (key == "id") {
-
-          document.querySelectorAll('textarea').forEach(function (el, ind) {
-            if ($(el)[0]["form"]["id"] == val) {
-              _.push($(el)[0]["id"]);
-            }
-          })
-
-          for (let count = 0; count < _web.length; count++) {
-            if (_web[count] == e.target.id) {
-              console.log(_web, _, count, e.target.value);
-              document.getElementById(_[count]).value = e.target.value;
-            }
-          }
-
-        }
-      }
-    })
-  });
-
 
 });
 
