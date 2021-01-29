@@ -238,6 +238,7 @@ $(document).ready(function () {
             });
 
             $(`#${form.webflow_submit}`).click(function (e) {
+                e.preventDefault();
                 /* 
                 Datepicker and Urls
                 */
@@ -268,7 +269,7 @@ $(document).ready(function () {
                 }
 
                 setTextAreaValues(form); // textarea
-                // $(`#${marketo}`).submit();
+                $(`#${marketo}`).submit();
 
             });
 
