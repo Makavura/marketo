@@ -194,15 +194,13 @@ $(document).ready(function () {
                     _web.push($(this)[0]["id"]);
                     if ($(this)[0]["id"] == e.target.id) { // each select input should have unique id
                         $('select').each(function (indice, val) {
-                            console.log(val)
                             if ($(this)[0]["form"]["id"] == entry.marketo) {
                                 _.push($(this)[0]["id"]);
                                 console.log(_)
                             }
                         })
-                        for (let i = 0; i < _.length; i++) {
-                            if (_[i] == e.target.id) {
-                                console.log(_[i], e.target.id, _, document.getElementById(_[i]))
+                        for (let i = 0; i < _web.length; i++) {
+                            if (_web[i] == e.target.id) {
                                 document.getElementById(_[i]).value = e.target.value;
                                 document.getElementById(_[i]).setAttribute("selected", "selected");
                             }
