@@ -194,6 +194,7 @@ $(document).ready(function () {
                     _web.push($(this)[0]["id"]);
                     if ($(this)[0]["id"] == e.target.id) { // each select input should have unique id
                         $('select').each(function (indice, val) {
+                            console.log(val)
                             if ($(this)[0]["form"]["id"] == entry.marketo) {
                                 _.push($(this)[0]["id"]);
                                 console.log(_)
