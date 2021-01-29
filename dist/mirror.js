@@ -175,10 +175,8 @@ $(document).ready(function () {
                 })
                 for (let count = 0; count < _web.length; count++) {
                   if (_web[count] == e.target.id) {
-                    console.log(e.target.form.id, value, count, _);
-
-                    document.getElementById(value)[count].value = e.target.value;
-                    document.getElementById(value)[count].setAttribute("selected", "selected");
+                    document.getElementById(_[count]).value = e.target.value;
+                    document.getElementById(_[count]).setAttribute("selected", "selected");
                   }
                 }
 
