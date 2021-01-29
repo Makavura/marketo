@@ -13,16 +13,16 @@ $(document).ready(function () {
             others: [ // loop through these object elements and alter type of inputs after document is ready programmatically
                 {
                     "urls": [
-                        '',  // ids of elements that are to be set as urls, in order of occurence in custom form whose structure mimicks the marketo form
+                        'Website-2',  // ids of elements that are to be set as urls, in order of occurence in custom form whose structure mimicks the marketo form
                     ],
                     "tels": [
                         // ''.'' ids of elements that are to be set as type of tel in order of occurence in custom form whose structure mimicks marketo's form
                     ],
                     "sliders": [
-                        '',  // ids of text input elements (to be set as sliders via jquery ui) in order of occurence in custom form whose structure mimicks marketo's form
+                        'slider-1',  // ids of text input elements (to be set as sliders via jquery ui) in order of occurence in custom form whose structure mimicks marketo's form
                     ],
                     "datepickers": [
-                        '',  // ids of text input elements (to be set as datepickers via jquery ui) in order of occurence in custom form whose structure mimicks marketo's form
+                        'datepicker',  // ids of text input elements (to be set as datepickers via jquery ui) in order of occurence in custom form whose structure mimicks marketo's form
                     ]
                 }
             ]
