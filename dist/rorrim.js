@@ -52,6 +52,7 @@ $(document).ready(function () {
     Checkbox
     */
     document.querySelectorAll('[marketo="checkbox"]').forEach(function (val, index) {
+        console.log($(val))
         $(val).keyup(function (e) {
             console.log(e, e.target.value)
             if ($(val).is(":checked")) {
