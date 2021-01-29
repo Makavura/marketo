@@ -22,13 +22,11 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
     $(value).keyup(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="text"]')[index].value = e.target.value;
           }
         }
-      })
     })
   });
 
@@ -37,13 +35,11 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
     $(value).keyup(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="number"]')[index].value = e.target.value;
           }
         }
-      })
     })
   });
   /* 
@@ -51,13 +47,11 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="select"]').forEach(function (value, index) {
     $(value).change(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="select"]')[index].value = e.target.value;
           }
         }
-      })
     })
   });
   /* 
@@ -65,27 +59,23 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
     $(value).change(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="radio"]')[index].value = e.target.value;
           }
         }
       })
-    })
   });
   /* 
   Checkbox
   */
   document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
     $(value).change(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="checkbox"]')[index].value = e.target.value;
           }
         }
-      })
     })
   });
   /* 
@@ -93,42 +83,36 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
     $(value).keyup(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="textarea"]')[index].value = e.target.value;
           }
         }
       })
-    })
   });
   /* 
   Email
   */
   document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
     $(value).keyup(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="email"]')[index].value = e.target.value;
           }
         }
       })
-    })
   });
   /* 
   Url
   */
   document.querySelectorAll('[marketo="url"]').forEach(function (value, index) {
     $(value).keyup(function (e) {
-      $(value).change(function (e) {
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="url"]')[index].value = e.target.value;
           }
         }
       })
-    })
   });
   /* 
   Slider
