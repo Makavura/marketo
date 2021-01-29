@@ -5,9 +5,6 @@ $(document).ready(function () {
     give the custom form submit button an id e.g webflow-submit
     give the marketo form an id e.g mkto_Form1048
     */
-    const webflow = "webflow";
-    const webflow_submit = "webflow-submit";
-    const marketo = "mkto_Form1048";
     const forms = [
         {
             webflow: "webflow",
@@ -16,19 +13,23 @@ $(document).ready(function () {
             others: [ // loop through these object elements and alter type of inputs after document is ready programmatically
                 {
                     "urls": [
-                        '', '' // ids of elements that are to be set as urls, in order of occurence in custom form whose structure mimicks the marketo form
+                        '',  // ids of elements that are to be set as urls, in order of occurence in custom form whose structure mimicks the marketo form
                     ],
                     "tels": [
-                        '', '' // ids of elements that are to be set as type of tel in order of occurence in custom form whose structure mimicks marketo's form
+                        // ''.'' ids of elements that are to be set as type of tel in order of occurence in custom form whose structure mimicks marketo's form
                     ],
                     "sliders": [
-                        '', '' // ids of text input elements (to be set as sliders via jquery ui) in order of occurence in custom form whose structure mimicks marketo's form
+                        '',  // ids of text input elements (to be set as sliders via jquery ui) in order of occurence in custom form whose structure mimicks marketo's form
+                    ],
+                    "datepickers": [
+                        '',  // ids of text input elements (to be set as datepickers via jquery ui) in order of occurence in custom form whose structure mimicks marketo's form
                     ]
                 }
             ]
         }
     ]
     /* 
+    FORM SETUP
     To be presented as an array of objects e.g forms = [ 
         { 
             webflow: "webflow", 
@@ -87,143 +88,93 @@ $(document).ready(function () {
     */
 
     function setUrlType(urls) {
-        document.getElementById("Website-2").setAttribute('type', 'url');
+        if (urls.length !== 0) {
+            urls.forEach(function (value, index) {
+                document.getElementById(`${value}`).setAttribute('type', 'url');
+            });
+        }
     }
 
     function setTelType(tels) {
-        document.getElementById("Website-2").setAttribute('type', 'tel');
+        if (tels.length !== 0) {
+            tels.forEach(function (value, index) {
+                document.getElementById(`${value}`).setAttribute('type', 'url');
+            });
+        }
     }
 
     function setSliderEvents(sliders) {
-
-        sliders.forEach(function (value, index) {
-            $(document).ready(function () {
-                $(`#${slider_id}`).slider({
-                    min: 0,
-                    max: 100,
-                    slide: function (event, ui) {
-                        $(`#${marketo} :input[type="range"]`)[index].value = ui.value;
-                    }
+        if (sliders.length !== 0) {
+            sliders.forEach(function (value, index) {
+                $(document).ready(function () {
+                    $(`#${slider_id}`).slider({
+                        min: 0,
+                        max: 100,
+                        slide: function (event, ui) {
+                            $(`#${marketo} :input[type="range"]`)[index].value = ui.value;
+                        }
+                    });
                 });
             });
-        });
+        }
     }
 
-    function setSubmissionEvents() {
-        $(`#${webflow_submit}`).click(function (e) {
-            /* 
-            Datepicker and Urls
-            */
-            $(`#${marketo} :input[type='date']`)[0]["value"] = $('#datepicker').val();
-            $(`#${marketo} :input[type="url"]`)[0].value = $(`#${webflow} :input[type="url"]`)[0].value;
-            /* 
-            Text & Number inputs 
-            Mirrored on Submission event of parent
-            */
-            let WFInputs = $(`#${webflow} :input`);
-            for (let i = 0; i < WFInputs.length; i++) {
-                if (WFInputs[i]["type"] == 'text') {
-                    $(`#${webflow} :input[type="text"]`).each(function (index, value) {
-                        if ($(`#${webflow} :input[type="text"]`)[index]['id'] == value["id"]) {
-                            console.log(index);
-                            if (index == 3) {
-                                return;
-                            }
-                            $('#${mktoForm_1048} :input[type="text"]')[index].value = value["value"];
+    function setDatePickerEvents(datepickers) {
+        if (datepickers.length !== 0) {
+            datepickers.forEach(function (value, index) {
+                $(document).ready(function () {
+                    $(`#${value}`).datepicker({
+                        function(date) {
+                            $(`#${marketo} :input[type="date"]`)[index].value = date;
                         }
                     });
-                } else if (WFInputs[i]["type"] == 'number') {
-                    $(`#${webflow} :input[type="number"]`).each(function (index, value) {
-                        if ($(`#${webflow} :input[type="number"]`)[index]['id'] == value["id"]) {
-                            $(`#${marketo} :input[type="number"]`)[index].value = value["value"];
-                        }
-                    });
-                }
-            }
-
-            $(`#${marketo}`).submit();
-
-            return null;
-
-            Array.from(document.getElementById(`${webflow}`).elements).forEach((element, index) => {
-                /* 
-                Issue: Sets only text inputs
-                */
-                document.getElementById(`${marketo}`).elements[index]["value"] = element["value"];
-                for (const [key, value] of Object.entries(element["dataset"])) {
-                    console.log(`${key}: ${value}`);
-                    /* 
-                    Using Data attributes, segragate type and find subsequent element in Form to be mirrored onto and set value
-                    
-                    Problem: 
-                    For one type of element, there are several number of similar elements in form to be mirrored onto
-                    How to know which of the children element's value is to be set?
-
-                    Alternative Solution 1:
-                    In dynamic set up of event listeners
-                    loop through elements and keep count of index and for each element's value whose index is current count in form to be mirrored is set
-                    */
-
-                    /* 
-                    Ideal for datepickers
-                    For the input elements for datepickers
-                    Set a data-attribute data-type="date"
-                    */
-                    if (key == "type") {
-                        if (value == "date") {
-
-                        }
-                    }
-                }
+                });
             });
-        });
-
-
+        }
     }
 
-    function setChangeEvents() {
+    function setChangeEvents(entry) {
         /* 
-                Email, Checkbox, Radio, Url, Range(Slider)
-                Mirrored on Change
+                Email, Checkbox, Radio, Url Mirrored on Change
         */
         $(document).ready(function () {
-            $(`#${webflow} :input[type="email"]`).change(function (e) {
-                $(`#${webflow} :input[type="email"]`).each(function (i, value) {
-                    if ($(`#${webflow} :input[type="email"]`)[i]['id'] == e.target.id) {
-                        $(`#${marketo} :input[type="email"]`)[i].value = e.target.value;
+            $(`#${entry.webflow} :input[type="email"]`).change(function (e) {
+                $(`#${entry.webflow} :input[type="email"]`).each(function (i, value) {
+                    if ($(`#${entry.webflow} :input[type="email"]`)[i]['id'] == e.target.id) {
+                        $(`#${entry.marketo} :input[type="email"]`)[i].value = e.target.value;
                     }
                 });
             })
-            $(`#${webflow} :input[type="checkbox"]`).change(function (e) {
-                $(`#${webflow} :input[type="checkbox"]`).each(function (i, value) {
-                    if ($(`#${webflow} :input[type="checkbox"]`)[i]['id'] == e.target.id) {
+            $(`#${entry.webflow} :input[type="checkbox"]`).change(function (e) {
+                $(`#${entry.webflow} :input[type="checkbox"]`).each(function (i, value) {
+                    if ($(`#${entry.webflow} :input[type="checkbox"]`)[i]['id'] == e.target.id) {
                         if ($(this).is(":checked")) {
-                            $(`#${marketo} :input[type="checkbox"]`)[i].checked = true;
+                            $(`#${entry.marketo} :input[type="checkbox"]`)[i].checked = true;
                         }
                         else if ($(this).is(":not(:checked)")) {
-                            $(`#${marketo} :input[type="checkbox"]`)[i].checked = false;
+                            $(`#${entry.marketo} :input[type="checkbox"]`)[i].checked = false;
                         }
                     }
                 });
             })
-            $(`#${webflow} :input[type="radio"]`).change(function (e) {
-                $(`#${webflow} :input[type="radio"]`).each(function (i, value) {
-                    if ($(`#${webflow} :input[type="radio"]`)[i]['id'] == e.target.id) {
+            $(`#${entry.webflow} :input[type="radio"]`).change(function (e) {
+                $(`#${entry.webflow} :input[type="radio"]`).each(function (i, value) {
+                    if ($(`#${entry.webflow} :input[type="radio"]`)[i]['id'] == e.target.id) {
                         if ($(this).is(":checked")) {
-                            $(`#${marketo} :input[type="radio"]`)[i].checked = true;
+                            $(`#${entry.marketo} :input[type="radio"]`)[i].checked = true;
                         }
                         else if ($(this).is(":not(:checked)")) {
-                            $(`#${marketo} :input[type="radio"]`)[i].checked = false;
+                            $(`#${entry.marketo} :input[type="radio"]`)[i].checked = false;
                         }
                     }
                 });
             });
-            $(`#${webflow} :input[type="url"]`).change(function (e) {
-                $(`#${webflow} :input[type="url"]`).each(function (i, value) {
-                    if ($(`#${webflow} :input[type="url"]`)[i]['id'] == e.target.id) {
-                        $(`#${marketo} :input[type="url"]`).each(function (index, val) {
+            $(`#${entry.webflow} :input[type="url"]`).change(function (e) {
+                $(`#${entry.webflow} :input[type="url"]`).each(function (i, value) {
+                    if ($(`#${entry.webflow} :input[type="url"]`)[i]['id'] == e.target.id) {
+                        $(`#${entry.marketo} :input[type="url"]`).each(function (index, val) {
                             if (index = i) {
-                                $(`#${marketo} :input[type="url"]`)[index].value = e.target.value;
+                                $(`#${entry.marketo} :input[type="url"]`)[index].value = e.target.value;
                             }
                         })
                     }
@@ -233,30 +184,128 @@ $(document).ready(function () {
         })
     }
 
-    function globalEvents() {
-        document.querySelectorAll("textarea").forEach(function (value, index, parent) {
-            if (index == ((document.querySelectorAll("textarea").length / 2))) {
-                return true;
-            }
-            document.querySelectorAll("textarea")[`${(document.querySelectorAll("textarea").length / 2)}`].value = document.querySelectorAll("textarea")[index].value;
-        })
+    function setSelectChangeEvents(entry) {
 
         $('select').change(function (e) {
+            let webflowSelects = [];
+            let marketoSelects = [];
             $('select').each(function (index, value) {
-                if ($('select')[index]['id'] == e.target.id) {
-                    if (index == ($('select').length / 2)) {
-                        return;
-                    }
-                    const _ = (($('select').length / 2) + index);
-                    $('select')[_].options
-                    for (let i = 0; i < $('select')[_].options.length; i++) {
-                        if ($('select')[index].value == $('select')[_].options[i].value) {
-                            $('select')[_].options[i]['selected'] = true;
-                        }
-                    }
+
+                if ($(this)[0]["form"]["id"] == entry.webflow) {
+                    webflowSelects.push($(this)[0]["id"])
+                } else if ($(this)[0]["form"]["id"] == entry.marketo) {
+                    marketoSelects.push($(this)[0]["id"]);
+                }
+            });
+
+            webflowSelects.forEach(function (index, value) {
+                if (value == e.target.id) {
+                    document.getElementById(marketoSelects[index]).value = e.target.value;
+                    document.getElementById(marketoSelects[index]).setAttribute("selected", "selected");
                 }
             });
         });
+
     }
+
+    function setTextAreaValues(entry){
+        let webflowTextAreas = [];
+        let marketoTextAreas = [];
+
+        document.querySelectorAll("textarea").forEach(function (value, index, parent) {
+            console.log(value["id"], value["form"]["id"], index);
+            if (value["form"]["id"] == entry.webflow) {
+                webflowTextAreas.push(value["id"])
+            } else if (value["form"]["id"] == entry.marketo) {
+                marketoTextAreas.push(value["id"])
+            }
+            webflowTextAreas.forEach(function(index, value){
+                document.getElementById(marketoTextAreas[index]).value  = document.getElementById(value).value;
+            })
+        });
+    }
+
+
+    function setSubmissionEvents(mirrors) {
+        mirrors.forEach(function (form, index) {
+            setChangeEvents(form); // Email, Checkbox, Radio, Url Mirrored on Change
+            form.others.forEach(function (element, index) {
+                setUrlType(element.urls); // urls
+                setSliderEvents(element.sliders); // sliders
+                setTelType(element.tels); // tels
+                setDatePickerEvents(element.datepickers); //datepickers
+            });
+
+            $(`#${form.webflow_submit}`).click(function (e) {
+                /* 
+                Datepicker and Urls
+                */
+                $(`#${form.marketo} :input[type='date']`)[0]["value"] = $('#datepicker').val();
+                $(`#${form.marketo} :input[type="url"]`)[0].value = $(`#${form.webflow} :input[type="url"]`)[0].value;
+                /* 
+                Text & Number inputs 
+                Mirrored on Submission event of parent
+                */
+                let WFInputs = $(`#${form.webflow} :input`);
+                for (let i = 0; i < WFInputs.length; i++) {
+                    if (WFInputs[i]["type"] == 'text') {
+                        $(`#${form.webflow} :input[type="text"]`).each(function (index, value) {
+                            if ($(`#${form.webflow} :input[type="text"]`)[index]['id'] == value["id"]) {
+                                console.log(index);
+                                if (index == 3) {
+                                    return;
+                                }
+                                $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
+                            }
+                        });
+                    } else if (WFInputs[i]["type"] == 'number') {
+                        $(`#${webflow} :input[type="number"]`).each(function (index, value) {
+                            if ($(`#${webflow} :input[type="number"]`)[index]['id'] == value["id"]) {
+                                $(`#${marketo} :input[type="number"]`)[index].value = value["value"];
+                            }
+                        });
+                    }
+                }
+
+                Array.from(document.getElementById(`${webflow}`).elements).forEach((element, index) => {
+                    /* 
+                   Snippet: document.getElementById(`${marketo}`).elements[index]["value"] = element["value"];
+                   Issue: Sets only text inputs
+                    */
+                    for (const [key, value] of Object.entries(element["dataset"])) {
+                        console.log(`${key}: ${value}`);
+                        /* 
+                        Using Data attributes, segragate type and find subsequent element in Form to be mirrored onto and set value
+                        
+                        Problem: 
+                        For one type of element, there are several number of similar elements in form to be mirrored onto
+                        How to know which of the children element's value is to be set?
+    
+                        Alternative Solution 1:
+                        In dynamic set up of event listeners
+                        loop through elements and keep count of index and for each element's value whose index is current count in form to be mirrored is set
+                        */
+
+                        /* 
+                        Ideal for datepickers
+                        For the input elements for datepickers
+                        Set a data-attribute data-type="date"
+                        */
+                        if (key == "type") {
+                            if (value == "date") {
+                                $(`#${marketo} :input[type="number"]`)[index].value = value["value"]; //numbers
+                            }
+                        }
+                    }
+                });
+                setTextAreaValues(form); // textarea
+                $(`#${marketo}`).submit();
+
+            });
+
+        });
+    }
+
+    setSubmissionEvents(forms);
 
 });
