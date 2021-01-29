@@ -74,44 +74,6 @@ $(document).ready(function () {
       }
     });
   })
-
-
-  /* 
-  Radio
-  */
-  document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
-    $(value).change(function (e) {
-      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-        if (key == "id") {
-
-        }
-      }
-    })
-  });
-  /* 
-  Checkbox
-  */
-  document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
-    $(value).change(function (e) {
-      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-        if (key == "id") {
-
-        }
-      }
-    })
-  });
-  /* 
-  Textarea
-  */
-  document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
-    $(value).keyup(function (e) {
-      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
-        if (key == "id") {
-          $(`#${value} :input[type="textarea"]`)[index].value = e.target.value;
-        }
-      }
-    })
-  });
   /* 
   Email
   */
@@ -175,6 +137,68 @@ $(document).ready(function () {
       console.log(e.target.value, index);
     })
   });
+
+  /* 
+Radio
+*/
+  document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
+    $(value).change(function (e) {
+      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+        if (key == "id") {
+          $('select').each(function (indice, val) {
+            if ($(this)[0]["form"]["id"] == value) {
+              _.push($(this)[0]["id"]);
+            }
+          })
+          for (let count = 0; count < _web.length; count++) {
+            if (_web[count] == e.target.id) {
+              console.log(_[count]);
+            }
+          }
+        }
+      }
+    })
+  });
+
+//   $(`#${entry.webflow} :input[type="radio"]`).change(function (e) {
+//     $(`#${entry.webflow} :input[type="radio"]`).each(function (i, value) {
+//         if ($(`#${entry.webflow} :input[type="radio"]`)[i]['id'] == e.target.id) {
+//             if ($(this).is(":checked")) {
+//                 $(`#${entry.marketo} :input[type="radio"]`)[i].checked = true;
+//             }
+//             else if ($(this).is(":not(:checked)")) {
+//                 $(`#${entry.marketo} :input[type="radio"]`)[i].checked = false;
+//             }
+//         }
+//     });
+// });
+
+
+  /* 
+  Checkbox
+  */
+  document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
+    $(value).change(function (e) {
+      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+        if (key == "id") {
+
+        }
+      }
+    })
+  });
+  /* 
+  Textarea
+  */
+  document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
+    $(value).keyup(function (e) {
+      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+        if (key == "id") {
+          $(`#${value} :input[type="textarea"]`)[index].value = e.target.value;
+        }
+      }
+    })
+  });
+
 
 });
 
