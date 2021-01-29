@@ -90,6 +90,13 @@ $(document).ready(function () {
     $(value).change(function (e) {
       console.log(e.target.value, index);
     })
+    $(value).slider({
+      min: 0,
+      max: 100,
+      slide: function (event, ui) {
+        console.warn(ui.value);
+      }
+  })
   });
   /* 
   Date
