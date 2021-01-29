@@ -103,7 +103,7 @@ $(document).ready(function () {
         }
     }
 
-    function setSliderEvents(sliders) {
+    function setSliderEvents(sliders, marketo) {
         if (sliders.length !== 0) {
             sliders.forEach(function (value, index) {
                 $(document).ready(function () {
@@ -232,7 +232,7 @@ $(document).ready(function () {
             setChangeEvents(form); // Email, Checkbox, Radio, Url Mirrored on Change
             form.others.forEach(function (element, index) {
                 setUrlType(element.urls); // urls
-                setSliderEvents(element.sliders); // sliders
+                setSliderEvents(element.sliders, form.marketo); // sliders
                 setTelType(element.tels); // tels
                 setDatePickerEvents(element.datepickers); //datepickers
             });
