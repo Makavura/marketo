@@ -52,13 +52,13 @@ $(document).ready(function () {
     Checkbox
     */
     document.querySelectorAll('[marketo="checkbox"]').forEach(function (val, index) {
-        $(value).keyup(function (e) {
+        $(val).keyup(function (e) {
             console.log(e, e.target.value)
-            if ($(value).is(":checked")) {
-                $(`#${$(value).data('marketoid')}`).checked = true;
+            if ($(val).is(":checked")) {
+                $(`#${$(val).data('marketoid')}`).checked = true;
             }
-            else if ($(value).is(":not(:checked)")) {
-                $(`#${$(value).data('marketoid')}`).checked = false;
+            else if ($(val).is(":not(:checked)")) {
+                $(`#${$(val).data('marketoid')}`).checked = false;
             }
         });
     });
