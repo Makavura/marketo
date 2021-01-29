@@ -159,14 +159,12 @@ $(document).ready(function () {
                 Select inputs mirrored on change
         */
   $('select').change(function (e) {
-    console.log(e.target.form.id)
-
     let _web = [];
     let _ = [];
     $('select').each(function (index, value) {
       if ($(this)[0]["form"]["id"] == e.target.form.id) {
         _web.push($(this)[0]["id"]);
-        if ($(this)[0]["id"] == e.target.id) { // each select input should have unique id
+        if ($(this)[0]["id"] == e.target.id) { 
           $('select').each(function (i, element) {
             for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
               if (key == "id") {
@@ -177,6 +175,8 @@ $(document).ready(function () {
                 })
                 for (let count = 0; count < _web.length; count++) {
                   if (_web[count] == e.target.id) {
+                    console.log(e.target.form.id)
+
                     document.getElementById(value)[count].value = e.target.value;
                     document.getElementById(value)[count].setAttribute("selected", "selected");
                   }
