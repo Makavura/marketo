@@ -86,7 +86,6 @@ $(document).ready(function () {
   Slider
   */
   document.querySelectorAll('[marketo="slider"]').forEach(function (value, index) {
-    console.log($(value).slider("value"));
     $(value).change(function (e) {
       console.log(e.target.value, index);
     })
@@ -98,7 +97,7 @@ $(document).ready(function () {
         console.log($(this).closest('form')[0]["id"])
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
-            $('#mktoForm_1048 :input[type="range"]')[0].value = ui.value
+            $('#mktoForm_1048 :input[type="range"]')[index].value = ui.value
           }
         }
 
@@ -109,7 +108,6 @@ $(document).ready(function () {
   Date
   */
   document.querySelectorAll('[marketo="date"]').forEach(function (value, index) {
-    console.log(value);
     $(value).change(function (e) {
       console.log(e.target.value, index);
     })
