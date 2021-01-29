@@ -64,9 +64,11 @@ $(document).ready(function () {
             for (let count = 0; count < _web.length; count++) {
               if (_web[count] == e.target.id) {
                 if ($(this).is(":checked")) {
+                  console.log(count, $(this))
                   $(`#${val} :input[type="radio"]`)[count].checked = true;
                 }
                 else if ($(this).is(":not(:checked)")) {
+                  console.log(count, $(this))
                   $(`#${val} :input[type="radio"]`)[count].checked = false;
                 }
               }
