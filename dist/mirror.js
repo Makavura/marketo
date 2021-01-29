@@ -86,6 +86,7 @@ $(document).ready(function () {
   Slider
   */
   document.querySelectorAll('[marketo="slider"]').forEach(function (value, index) {
+    console.log(value);
     $(value).change(function (e) {
       console.log(e.target.value, index);
     })
@@ -94,6 +95,7 @@ $(document).ready(function () {
   Date
   */
   document.querySelectorAll('[marketo="date"]').forEach(function (value, index) {
+    console.log(value);
     $(value).change(function (e) {
       console.log(e.target.value, index);
     })
