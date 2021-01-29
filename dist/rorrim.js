@@ -31,6 +31,7 @@ $(document).ready(function () {
     document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
 
         $(value).change(function (e) {
+            console.log(e, e.target.value)
             if ($(this).is(":checked")) {
                 $(`#${$(this).data('marketoid')}`).checked = true;
             }
