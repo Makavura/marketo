@@ -93,16 +93,13 @@ $(document).ready(function () {
       min: 0,
       max: 100,
       slide: function (event, ui) {
-        console.warn(ui.value);
-        console.log($(this).closest('form')[0]["id"])
         for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
           if(key == "id"){
             $('#mktoForm_1048 :input[type="range"]')[index].value = ui.value
           }
         }
-
       }
-  })
+  });
   });
   /* 
   Date
@@ -110,6 +107,11 @@ $(document).ready(function () {
   document.querySelectorAll('[marketo="date"]').forEach(function (value, index) {
     $(value).change(function (e) {
       console.log(e.target.value, index);
+      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+        if(key == "id"){
+          $('#mktoForm_1048 :input[type="date"]')[index].value = e.target.value;
+        }
+      }
     })
   });
   /* 
