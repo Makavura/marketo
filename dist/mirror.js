@@ -21,9 +21,8 @@ $(document).ready(function () {
   Text
   */
   document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
-    console.log(value, index);
     $(value).keyup(function (e) {
-      console.log(e);
+      console.log(e.target.value, index);
     })
   });
 
@@ -31,43 +30,57 @@ $(document).ready(function () {
   Number
   */
   document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
-    // console.log(value, index);
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
   });
   /* 
   Select
   */
   document.querySelectorAll('[marketo="select"]').forEach(function (value, index) {
-    // console.log(value, index);
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
   });
   /* 
   Radio
   */
   document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
-    // console.log(value, index);
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
   });
   /* 
   Checkbox
   */
   document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
-    // console.log(value, index);
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
   });
   /* 
   Textarea
   */
   document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
-    // console.log(value, index);
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
   });
   /* 
   Email
   */
   document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
-    // console.log(value, index);
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
   });
   /* 
   Submit
   */
   document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
-    // console.log(value, index);
+    $(value).keyup(function (e) {
+      console.log(e.target.value, index);
+    })
   });
 
 
