@@ -255,7 +255,7 @@ $(document).ready(function () {
                                 if (index == 3) {
                                     return;
                                 }                                
-                                if($(`#${form.marketo} :input[type="text"]`)[index].value !== undefined){
+                                if(index !== undefined){
                                     $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
                                 }
                             }
