@@ -235,6 +235,7 @@ $(document).ready(function () {
                 setSliderEvents(element.sliders, form.marketo); // sliders
                 setTelType(element.tels); // tels
                 setDatePickerEvents(element.datepickers); //datepickers
+                setUrlType(element.urls); // urls
             });
 
             $(`#${form.webflow_submit}`).click(function (e) {
