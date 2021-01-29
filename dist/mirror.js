@@ -240,7 +240,12 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
     $(value).click(function (e) {
-      console.log(e.target.value, index);
+      e.preventDefault();
+      for (const [key, value] of Object.entries(document.getElementById($(this).closest('form')[0]["id"])["dataset"])) {
+        if (key == "id") {
+          $(`#${value}`).submit();
+        }
+      }
     })
   });
 
