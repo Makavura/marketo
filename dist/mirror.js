@@ -188,17 +188,6 @@ $(document).ready(function () {
         }
       }
     });
-
-    $('select').each(function (index, value) {
-
-      if (value["id"] = e.target.id) {
-
-
-
-      }
-      document.getElementById(_[i]).value = e.target.value;
-      document.getElementById(_[i]).setAttribute("selected", "selected");
-    })
   })
 
 });
