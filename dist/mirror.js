@@ -95,6 +95,7 @@ $(document).ready(function () {
       max: 100,
       slide: function (event, ui) {
         console.warn(ui.value);
+        console.log($(value)["form"]["id"])
       }
   })
   });
