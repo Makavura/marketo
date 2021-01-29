@@ -160,7 +160,6 @@ $(document).ready(function () {
             $(`#${entry.webflow} :input[type="radio"]`).change(function (e) {
                 $(`#${entry.webflow} :input[type="radio"]`).each(function (i, value) {
                     if ($(`#${entry.webflow} :input[type="radio"]`)[i]['id'] == e.target.id) {
-                        console.log(i, value, e.target.id, e.target.value, $(`#${entry.marketo} :input[type="radio"]`)[i] );
                         if ($(this).is(":checked")) {
                             $(`#${entry.marketo} :input[type="radio"]`)[i].checked = true;
                         }
@@ -214,7 +213,6 @@ $(document).ready(function () {
         let marketoTextAreas = [];
 
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
-            console.log(value["id"], value["form"]["id"], index);
             if (value["form"]["id"] == entry.webflow) {
                 webflowTextAreas.push(value["id"])
             } else if (value["form"]["id"] == entry.marketo) {
@@ -230,6 +228,7 @@ $(document).ready(function () {
     function setSubmissionEvents(mirrors) {
         mirrors.forEach(function (form, index) {
             setChangeEvents(form); // Email, Checkbox, Radio, Url Mirrored on Change
+            setSelectChangeEvents(form); // Select
             form.others.forEach(function (element, index) {
                 setUrlType(element.urls); // urls
                 setSliderEvents(element.sliders, form.marketo); // sliders
@@ -253,53 +252,25 @@ $(document).ready(function () {
                     if (WFInputs[i]["type"] == 'text') {
                         $(`#${form.webflow} :input[type="text"]`).each(function (index, value) {
                             if ($(`#${form.webflow} :input[type="text"]`)[index]['id'] == value["id"]) {
-                                console.log(index);
                                 if (index == 3) {
                                     return;
+                                }                                
+                                if($(`#${form.marketo} :input[type="text"]`)[index].value !== undefined){
+                                    $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
                                 }
-                                $(`#${form.marketo} :input[type="text"]`)[index].value = value["value"];
                             }
                         });
                     } else if (WFInputs[i]["type"] == 'number') {
                         $(`#${webflow} :input[type="number"]`).each(function (index, value) {
                             if ($(`#${webflow} :input[type="number"]`)[index]['id'] == value["id"]) {
-                                $(`#${marketo} :input[type="number"]`)[index].value = value["value"];
+                                if($(`#${marketo} :input[type="number"]`)[index].value !== undefined ){
+                                    $(`#${marketo} :input[type="number"]`)[index].value = value["value"];
+                                }
                             }
                         });
                     }
                 }
 
-                Array.from(document.getElementById(`${webflow}`).elements).forEach((element, index) => {
-                    /* 
-                   Snippet: document.getElementById(`${marketo}`).elements[index]["value"] = element["value"];
-                   Issue: Sets only text inputs
-                    */
-                    for (const [key, value] of Object.entries(element["dataset"])) {
-                        console.log(`${key}: ${value}`);
-                        /* 
-                        Using Data attributes, segragate type and find subsequent element in Form to be mirrored onto and set value
-                        
-                        Problem: 
-                        For one type of element, there are several number of similar elements in form to be mirrored onto
-                        How to know which of the children element's value is to be set?
-    
-                        Alternative Solution 1:
-                        In dynamic set up of event listeners
-                        loop through elements and keep count of index and for each element's value whose index is current count in form to be mirrored is set
-                        */
-
-                        /* 
-                        Ideal for datepickers
-                        For the input elements for datepickers
-                        Set a data-attribute data-type="date"
-                        */
-                        if (key == "type") {
-                            if (value == "date") {
-                                $(`#${marketo} :input[type="number"]`)[index].value = value["value"]; //numbers
-                            }
-                        }
-                    }
-                });
                 setTextAreaValues(form); // textarea
                 $(`#${marketo}`).submit();
 
