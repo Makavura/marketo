@@ -187,16 +187,28 @@ $(document).ready(function () {
     function setSelectChangeEvents(entry) {
 
         $('select').change(function (e) {
+            let _web = [];
+            let _ = [];
             $('select').each(function (index, value) {
                 if ($(this)[0]["form"]["id"] == entry.webflow) {
-                    if($(this)[0]["id"] == e.target.id) { // each select input should have unique id
-                        console.log(index, value);
+                    _web.push($(this)[0]["id"]);
+                    if ($(this)[0]["id"] == e.target.id) { // each select input should have unique id
+                        $('select').each(function (indice, val) {
+                            if ($(this)[0]["form"]["id"] == entry.marketo) {
+                                _.push($(this)[0]["id"]);
+                            }
+                        })
+                        for (let i = 0; i < _.length; i++) {
+                            if (_[i] == e.target.id) {
+                                document.getElementById(_[i]).value = e.target.value;
+                            }
+                        }
                     }
-                } 
+                }
             });
 
-                    // document.getElementById(marketoSelects[index]).value = e.target.value;
-                    // document.getElementById(marketoSelects[index]).setAttribute("selected", "selected");
+            // document.getElementById(marketoSelects[index]).value = e.target.value;
+            // document.getElementById(marketoSelects[index]).setAttribute("selected", "selected");
 
         });
 
