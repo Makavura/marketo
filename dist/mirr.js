@@ -200,8 +200,8 @@ $(document).ready(function () {
                             }
                         })
                         for (let i = 0; i < _.length; i++) {
-                            console.log(_[i], e.target.id, _)
                             if (_[i] == e.target.id) {
+                                console.log(_[i], e.target.id, _)
                                 document.getElementById(_[i]).value = e.target.value;
                                 document.getElementById(_[i]).setAttribute("selected", "selected");
                             }
