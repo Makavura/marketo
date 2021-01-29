@@ -200,17 +200,15 @@ $(document).ready(function () {
                             }
                         })
                         for (let i = 0; i < _.length; i++) {
+                            console.log(_[i], e.target.id)
                             if (_[i] == e.target.id) {
                                 document.getElementById(_[i]).value = e.target.value;
+                                document.getElementById(_[i]).setAttribute("selected", "selected");
                             }
                         }
                     }
                 }
             });
-
-            // document.getElementById(marketoSelects[index]).value = e.target.value;
-            // document.getElementById(marketoSelects[index]).setAttribute("selected", "selected");
-
         });
 
     }
