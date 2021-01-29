@@ -140,9 +140,7 @@ $(document).ready(function () {
         $(document).ready(function () {
             $(`#${entry.webflow} :input[type="email"]`).change(function (e) {
                 $(`#${entry.webflow} :input[type="email"]`).each(function (i, value) {
-                    console.log(i, value, e.target.id, e.target.value);
                     if ($(`#${entry.webflow} :input[type="email"]`)[i]['id'] == e.target.id) {
-                        console.log($(`#${entry.marketo} :input[type="email"]`)[i]);
                         $(`#${entry.marketo} :input[type="email"]`)[i].value = e.target.value;
                     }
                 });
@@ -162,6 +160,7 @@ $(document).ready(function () {
             $(`#${entry.webflow} :input[type="radio"]`).change(function (e) {
                 $(`#${entry.webflow} :input[type="radio"]`).each(function (i, value) {
                     if ($(`#${entry.webflow} :input[type="radio"]`)[i]['id'] == e.target.id) {
+                        console.log(i, value, e.target.id, e.target.value, $(`#${entry.marketo} :input[type="radio"]`)[i] );
                         if ($(this).is(":checked")) {
                             $(`#${entry.marketo} :input[type="radio"]`)[i].checked = true;
                         }
