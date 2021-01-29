@@ -196,6 +196,7 @@ $(document).ready(function () {
                         $('select').each(function (indice, val) {
                             if ($(this)[0]["form"]["id"] == entry.marketo) {
                                 _.push($(this)[0]["id"]);
+                                console.log(_)
                             }
                         })
                         for (let i = 0; i < _.length; i++) {
