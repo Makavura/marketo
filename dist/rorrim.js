@@ -102,7 +102,7 @@ $(document).ready(function () {
             slide: function (event, ui) {
                 console.log(event.target.id);
                 console.log(document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id"))
-                // document.getElementById(`${document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id")}`).value = ui.value
+                document.getElementById(`${document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id")}`).value = ui.value
 
             }
         });
