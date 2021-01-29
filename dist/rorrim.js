@@ -31,10 +31,10 @@ $(document).ready(function () {
     document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
         $(value).change(function (e) {
             if ($(this).prop(":checked")) {
-                $(`#${$(this).data('marketoid')}`).prop('checked', true);
+                document.getElementById(`#${$(this).data('marketoid')}`).checked = true;
             }
             else if ($(this).prop(":not(:checked)")) {
-                $(`#${$(this).data('marketoid')}`).prop('checked', false);
+                document.getElementById(`#${$(this).data('marketoid')}`).checked = false;
             }
         });
     });
@@ -55,10 +55,10 @@ $(document).ready(function () {
         $(val).keyup(function (e) {
             console.log(e, e.target.value)
             if ($(val).is(":checked")) {
-                $(`#${$(val).data('marketoid')}`).checked = true;
+                document.getElementById(`#${$(this).data('marketoid')}`).checked = true;
             }
             else if ($(val).is(":not(:checked)")) {
-                $(`#${$(val).data('marketoid')}`).checked = false;
+                document.getElementById(`#${$(this).data('marketoid')}`).checked = false;
             }
         });
     });
