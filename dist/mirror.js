@@ -22,7 +22,7 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
     console.log(value, index);
-    value.change(function (e){
+    value.onchange(function (e){
       console.log(e);
     })
   });
