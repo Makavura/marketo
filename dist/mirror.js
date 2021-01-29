@@ -1,22 +1,12 @@
 /* 
-INSTRUCTIONS
+SETUP INSTRUCTIONS
 
-set custom form inputs with a data attribute e.g for email input set marketo=email
-set custom form with a unique data attibute indicating the id of the form e.g form=mktoForm_1048
-
-
+set custom form inputs with a data attribute to match intended type e.g for email input set marketo=email
+set custom form with a unique data attibute indicating the id of the marketo form e.g form=mktoForm_1048
+Script is fully dynamic and only dependent on data attributes
 */
 
 $(document).ready(function () {
-
-
-  /* 
-  Multiple forms
-  Fetch form being referred to in data-id attribute of webflow form 
-  In the event that the element in reference has there value changed, find the element whose count in the form being mirrored onto matches the count of this
-  element's type and set its value
-  */
-
   /* 
   Text
   */
