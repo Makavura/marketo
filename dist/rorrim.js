@@ -14,6 +14,7 @@ $(document).ready(function () {
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
             console.log(e.target.id);
+            console.log(document.querySelector(`#${e.target.id}`).getAttribute("marketo-id"))
             document.getElementById(`${$(this).data('marketoid')}`).value = e.target.value;
         })
     });
