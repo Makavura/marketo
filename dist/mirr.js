@@ -107,7 +107,7 @@ $(document).ready(function () {
         if (sliders.length !== 0) {
             sliders.forEach(function (value, index) {
                 $(document).ready(function () {
-                    $(`#${slider_id}`).slider({
+                    $(`#${value}`).slider({
                         min: 0,
                         max: 100,
                         slide: function (event, ui) {
