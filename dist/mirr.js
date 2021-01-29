@@ -196,7 +196,6 @@ $(document).ready(function () {
                         $('select').each(function (indice, val) {
                             if ($(this)[0]["form"]["id"] == entry.marketo) {
                                 _.push($(this)[0]["id"]);
-                                console.log(_)
                             }
                         })
                         for (let i = 0; i < _web.length; i++) {
@@ -216,17 +215,12 @@ $(document).ready(function () {
         let webflowTextAreas = [];
         let marketoTextAreas = [];
         document.querySelectorAll("textarea").forEach(function (value, index, parent) {
-            console.log(parent)
-        })
-        document.querySelectorAll("textarea").forEach(function (value, index, parent) {
             if (value["form"]["id"] == entry.webflow) {
                 webflowTextAreas.push(value["id"])
             } else if (value["form"]["id"] == entry.marketo) {
                 marketoTextAreas.push(value["id"])
             }
             webflowTextAreas.forEach(function (value, index) {
-                console.log(value, marketoTextAreas[index]);
-
                 document.querySelectorAll("textarea").forEach(function (val, indice, parent) {
                     if (val["form"]["id"] == entry.marketo) {
                         val.value = document.getElementById(value).value;
@@ -281,13 +275,12 @@ $(document).ready(function () {
                 }
 
                 setTextAreaValues(form); // textarea
-                // $(`#${marketo}`).submit();
-
+                $(`#${form.marketo}`).submit();
             });
 
         });
     }
 
-    setSubmissionEvents(forms);
+    setSubmissionEvents(forms); // programmatically set event listeners for all pairs of forms as declared in the forms array
 
 });
