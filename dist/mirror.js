@@ -239,6 +239,7 @@ $(document).ready(function () {
           })
           for (let count = 0; count < _web.length; count++) {
             if (_web[count] == e.target.id) {
+              console.log(_web, _, count, e.target.value);
               document.getElementById(_[count]).value = e.target.value;
             }
           }
