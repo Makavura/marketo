@@ -13,7 +13,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).value = e.target.value;
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
     });
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
         $(value).change(function (e) {
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).value = e.target.value;
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
     });
     /* 
@@ -32,11 +32,11 @@ $(document).ready(function () {
         $(value).change(function (e) {
             if ($(this).prop(":checked")) {
                 console.log(e);
-                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).checked = true;
+                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
             }
             else if ($(this).prop(":not(:checked)")) {
                 console.log(e);
-                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).checked = false;
+                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
             }
         });
     });
@@ -45,8 +45,8 @@ $(document).ready(function () {
     */
     $('select').change(function (e) {
 
-        document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).value = e.target.value;
-        document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).setAttribute("selected", "selected");
+        document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
+        document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
 
     })
     /* 
@@ -57,11 +57,11 @@ $(document).ready(function () {
             console.log(e, e.target.value)
             if ($(val).is(":checked")) {
                 console.log(e);
-                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).checked = true;
+                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
             }
             else if ($(val).is(":not(:checked)")) {
                 console.log(e);
-                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).checked = false;
+                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
             }
         });
     });
@@ -70,7 +70,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).value = e.target.value;
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
     });
     /* 
@@ -78,7 +78,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).value = e.target.value;
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         });
     });
     /* 
@@ -86,7 +86,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="url"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).value = e.target.value;
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
     });
     /* 
@@ -100,8 +100,9 @@ $(document).ready(function () {
             min: 0,
             max: 100,
             slide: function (event, ui) {
-                console.log(event.target);
-                document.getElementById(`${document.querySelector(`#${event.target.id}`).getAttribute("marketo-id")}`).value = ui.value
+                console.log(event.target.id);
+                console.log(document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id"))
+                // document.getElementById(`${document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id")}`).value = ui.value
 
             }
         });
@@ -111,7 +112,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="date"]').forEach(function (value, index) {
         $(value).change(function (e) {
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`).value = e.target.value;
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
     });
     /* 
@@ -120,7 +121,7 @@ $(document).ready(function () {
     document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
         $(value).click(function (e) {
             e.preventDefault();
-            $(`#${document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-id")}`)}`).submit();
+            $(`#${document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`)}`).submit();
         })
     });
 
