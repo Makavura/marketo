@@ -22,49 +22,52 @@ $(document).ready(function () {
   */
   document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
     console.log(value, index);
+    value.change(function (e){
+      console.log(e);
+    })
   });
 
   /* 
   Number
   */
   document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
-    console.log(value, index);
+    // console.log(value, index);
   });
   /* 
   Select
   */
   document.querySelectorAll('[marketo="select"]').forEach(function (value, index) {
-    console.log(value, index);
+    // console.log(value, index);
   });
   /* 
   Radio
   */
   document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
-    console.log(value, index);
+    // console.log(value, index);
   });
   /* 
   Checkbox
   */
   document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
-    console.log(value, index);
+    // console.log(value, index);
   });
   /* 
   Textarea
   */
   document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
-    console.log(value, index);
+    // console.log(value, index);
   });
   /* 
   Email
   */
   document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
-    console.log(value, index);
+    // console.log(value, index);
   });
   /* 
   Submit
   */
   document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
-    console.log(value, index);
+    // console.log(value, index);
   });
 
 
