@@ -9,7 +9,7 @@ $(document).ready(function () {
         {
             webflow: "webflow",
             webflow_submit: "webflow-submit",
-            marketo: "mkto_Form1048",
+            marketo: "mktoForm_1048",
             others: [ // loop through these object elements and alter type of inputs after document is ready programmatically
                 {
                     "urls": [
