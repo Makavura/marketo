@@ -159,7 +159,7 @@ $(document).ready(function () {
                 Select inputs mirrored on change
         */
   $('select').change(function (e) {
-    console.log(e.target.form)
+    console.log(e.target.form.id)
     $('select').each(function (index, value) {
 
       if (value["id"] = e.target.id) {
