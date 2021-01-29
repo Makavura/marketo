@@ -95,7 +95,7 @@ $(document).ready(function () {
       max: 100,
       slide: function (event, ui) {
         console.warn(ui.value);
-        console.log($(this).closest('form'))
+        console.log($(this).closest('form')[0]["id"])
       }
   })
   });
