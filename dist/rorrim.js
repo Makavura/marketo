@@ -100,6 +100,7 @@ $(document).ready(function () {
             min: 0,
             max: 100,
             slide: function (event, ui) {
+                console.log(event.target);
                 document.getElementById(`${document.querySelector(`#${event.target.id}`).getAttribute("marketo-id")}`).value = ui.value
 
             }
