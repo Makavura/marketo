@@ -259,16 +259,16 @@ $(document).ready(function () {
                             }
                         });
                     } else if (WFInputs[i]["type"] == 'number') {
-                        $(`#${webflow} :input[type="number"]`).each(function (index, value) {
-                            if ($(`#${webflow} :input[type="number"]`)[index]['id'] == value["id"]) {
-                                    $(`#${marketo} :input[type="number"]`)[index].value = value["value"];
+                        $(`#${form.webflow} :input[type="number"]`).each(function (index, value) {
+                            if ($(`#${form.webflow} :input[type="number"]`)[index]['id'] == value["id"]) {
+                                    $(`#${form.marketo} :input[type="number"]`)[index].value = value["value"];
                             }
                         });
                     }
                 }
 
                 setTextAreaValues(form); // textarea
-                $(`#${marketo}`).submit();
+                // $(`#${marketo}`).submit();
 
             });
 
