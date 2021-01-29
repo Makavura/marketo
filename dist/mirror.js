@@ -1,25 +1,71 @@
 /* 
 INSTRUCTIONS
-Name data attributes to match Marketo's/Mirror form Input element's ids
-Give First Form a class name e.g formhelper-1 and a unique ID
-Give First Form button submit a unique ID
-Give second form an different class that mirrors the first form - e.g formhelper-2 
-Radio Buttons Require name to be similar if only one is to be selected, 
-if choice is being made between a different set, set a different name
-On Change of Select, Multiple Select, Checkbox and Radio button change, input values will be reflected in the mirror form
-On Submit, Text, Number, Email & Password form input values will be fetched and filled 
-*/
-/* 
-On Selection
-Fetch Value 
-Set Value in Child Form
+
+set custom form inputs with a data attribute e.g for email input set marketo=email
+set custom form with a unique data attibute indicating the id of the form e.g form=mktoForm_1048
+
+
 */
 
 $(document).ready(function () {
 
-    $( "#marketo-submit" ).submit(function( event ) {
-        alert( "Handler for .submit() called." );
-        event.preventDefault();
-      });
+
+  /* 
+  Multiple forms
+  Fetch form being referred to in data-id attribute of webflow form 
+  In the event that the element in reference has there value changed, find the element whose count in the form being mirrored onto matches the count of this
+  element's type and set its value
+  */
+
+  /* 
+  Text
+  */
+  document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+
+  /* 
+  Number
+  */
+  document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+  /* 
+  Select
+  */
+  document.querySelectorAll('[marketo="select"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+  /* 
+  Radio
+  */
+  document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+  /* 
+  Checkbox
+  */
+  document.querySelectorAll('[marketo="checkbox"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+  /* 
+  Textarea
+  */
+  document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+  /* 
+  Email
+  */
+  document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+  /* 
+  Submit
+  */
+  document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
+    console.log(value, index);
+  });
+
 
 });
