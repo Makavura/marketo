@@ -175,7 +175,7 @@ $(document).ready(function () {
                 })
                 for (let count = 0; count < _web.length; count++) {
                   if (_web[count] == e.target.id) {
-                    console.log(e.target.form.id)
+                    console.log(e.target.form.id, value, count);
 
                     document.getElementById(value)[count].value = e.target.value;
                     document.getElementById(value)[count].setAttribute("selected", "selected");
