@@ -34,13 +34,13 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
         $(value).change(function (e) {
-            if ($(this).prop(":checked")) {
+            if (document.getElementById(e.target.id).checked) {
                 console.log(e);
                 const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 console.log(e.target.value, _);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
             }
-            else if ($(this).prop(":not(:checked)")) {
+            else if (!document.getElementById(e.target.id).checked) {
                 console.log(e);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
             }
@@ -59,15 +59,10 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="checkbox"]').forEach(function (val, index) {
         $(val).change(function (e) {
-            const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-            console.log(e.target.value, _);
-            console.log(e, e.target.value)
             if ($(val).is(":checked")) {
-                console.log(e);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
             }
             else if ($(val).is(":not(:checked)")) {
-                console.log(e);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
             }
         });
@@ -101,16 +96,13 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="slider"]').forEach(function (value, index) {
         $(value).change(function (e) {
-            console.log(e.target.value, index);
+            // console.log(e.target.value, index);
         })
         $(value).slider({
             min: 0,
             max: 100,
             slide: function (event, ui) {
-                console.log(event.target.id);
-                console.log(document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id"))
                 document.getElementById(`${document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id")}`).value = ui.value
-
             }
         });
     });
