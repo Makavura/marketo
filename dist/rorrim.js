@@ -120,8 +120,8 @@ $(document).ready(function () {
                     }
             });
 
-            console.log(document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id"));
-            // $(`#${document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`)}`).submit();
+            const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+            document.getElementById(submissionbuttonid).submit();
         })
     });
 
