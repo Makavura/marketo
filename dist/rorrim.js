@@ -13,7 +13,7 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
         let _ = document.getElementById(value["id"]);
-        _.addEventListener('change', function (e) {
+        return _.addEventListener('change', function (e) {
             const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
             console.log(e.target.value, _);
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
