@@ -103,7 +103,7 @@ $(document).ready(function () {
             document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
                 const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
                 console.log(_);
-                if(_ !== null && _ !== undefined){
+                if(_){
                     document.getElementById(`_`).value = value["value"];
                 }
 
