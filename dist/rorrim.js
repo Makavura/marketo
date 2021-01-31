@@ -102,12 +102,12 @@ $(document).ready(function () {
             */
             document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
                 const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
-                if(_){
+                // if(_){
                     console.log(_);
                     const _id = value["id"];
                     document.getElementById(_).value = document.getElementById(_id).value;
                     console.log(value["value"], document.getElementById(_id).value);
-                }
+                // }
 
             });
 
