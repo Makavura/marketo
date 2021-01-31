@@ -2,16 +2,16 @@
 SETUP INSTRUCTIONS
 
 set custom form inputs with a data attribute to match the id  intended field in webflow 
-e.g for a name entry in marketo with an id of Name, the attribute will be data-marketoid=Name
+e.g for a name entry in marketo with an id of Name, the attribute will be marketo-input-id=Name
 
-set custom form inputs with a data attribute to match intended type e.g for email input set marketo=email
+set custom form inputs with a data attribute to match intended type e.g for email input set marketo-input-type=email
 */
 
 $(document).ready(function () {
     /* 
     Radio
     */
-    document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
+    document.querySelectorAll('[marketo-input-type="radio"]').forEach(function (value, index) {
         $(value).change(function (e) {
             if (document.getElementById(e.target.id).checked) {
                 const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
@@ -33,7 +33,7 @@ $(document).ready(function () {
     /* 
     Checkbox
     */
-    document.querySelectorAll('[marketo="checkbox"]').forEach(function (val, index) {
+    document.querySelectorAll('[marketo-input-type="checkbox"]').forEach(function (val, index) {
         $(val).change(function (e) {
             if ($(val).is(":checked")) {
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
@@ -46,7 +46,7 @@ $(document).ready(function () {
     /* 
     Textarea
     */
-    document.querySelectorAll('[marketo="textarea"]').forEach(function (value, index) {
+    document.querySelectorAll('[marketo-input-type="textarea"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
@@ -54,7 +54,7 @@ $(document).ready(function () {
     /* 
     Email
     */
-    document.querySelectorAll('[marketo="email"]').forEach(function (value, index) {
+    document.querySelectorAll('[marketo-input-type="email"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         });
@@ -62,7 +62,7 @@ $(document).ready(function () {
     /* 
     Url
     */
-    document.querySelectorAll('[marketo="url"]').forEach(function (value, index) {
+    document.querySelectorAll('[marketo-input-type="url"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
@@ -70,7 +70,7 @@ $(document).ready(function () {
     /* 
     Slider
     */
-    document.querySelectorAll('[marketo="slider"]').forEach(function (value, index) {
+    document.querySelectorAll('[marketo-input-type="slider"]').forEach(function (value, index) {
         $(value).change(function (e) {
             // console.log(e.target.value, index);
         })
@@ -85,7 +85,7 @@ $(document).ready(function () {
     /* 
     Date
     */
-    document.querySelectorAll('[marketo="date"]').forEach(function (value, index) {
+    document.querySelectorAll('[marketo-input-type="date"]').forEach(function (value, index) {
         $(value).change(function (e) {
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         })
@@ -93,17 +93,17 @@ $(document).ready(function () {
     /* 
     Submit
     */
-    document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
+    document.querySelectorAll('[marketo-input-type="submit"]').forEach(function (value, index) {
         $(value).click(function (e) {
             e.preventDefault();
 
             /* 
             Text
             */
-            document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
+            document.querySelectorAll('[marketo-input-type="text"]').forEach(function (value, index) {
                 const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
                 if(_){
-                    console.log(_);
+                    const _id = value["id"];
                     document.getElementById(_).value = document.getElementById(_id).value;
                 }
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
             /* 
             Number
             */
-            document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
+            document.querySelectorAll('[marketo-input-type="number"]').forEach(function (value, index) {
                     const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
                     if(_){
                         const _id = value["id"];
