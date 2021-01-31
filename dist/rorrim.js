@@ -11,23 +11,14 @@ $(document).ready(function () {
     /* 
     Text
     */
-   let textElements = document.querySelectorAll('[marketo="text"]');
-   for (i of textElements)(
-       function(i){
-           i.addEventListener('change', function() {
-            const _ = document.querySelector(`#${i.target.id}`).getAttribute("marketo-input-id");
-            console.log(i.target.value, _);
-            document.getElementById(`${document.querySelector(`#${i.target.id}`).getAttribute("marketo-input-id")}`).value = i.target.value;
-           })
-       }
-   );
-    // document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
-    //     value.addEventListener('focus', function (e) {
-    //         const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-    //         console.log(e.target.value, _);
-    //         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
-    //     });
-    // });
+    document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
+        let _ = document.getElementById(value["id"]);
+        _.addEventListener('change', function (e) {
+            const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+            console.log(e.target.value, _);
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
+        });
+    });
 
     /* 
     Number
