@@ -12,7 +12,7 @@ $(document).ready(function () {
     Text
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
-        $(value).keyup(function (e) {
+        $(value).change(function (e) {
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
             });
     });
