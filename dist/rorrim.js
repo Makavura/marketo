@@ -50,9 +50,6 @@ $(document).ready(function () {
     Select inputs mirrored on change
     */
     $('select').change(function (e) {
-        const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-        console.log(e.target.value, _);
-
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
 
@@ -61,7 +58,7 @@ $(document).ready(function () {
     Checkbox
     */
     document.querySelectorAll('[marketo="checkbox"]').forEach(function (val, index) {
-        $(val).keyup(function (e) {
+        $(val).change(function (e) {
             const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
             console.log(e.target.value, _);
             console.log(e, e.target.value)
