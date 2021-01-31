@@ -13,6 +13,8 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
         $(value).change(function (e) {
+            const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+            console.log(e.target.value, _);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
             });
     });
@@ -22,8 +24,8 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
         $(value).change(function (e) {
-            console.log(e.target.value);
             const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+            console.log(e.target.value, _);
             $(`#${_}`).value = e.target.value;
         })
     });
@@ -34,6 +36,8 @@ $(document).ready(function () {
         $(value).change(function (e) {
             if ($(this).prop(":checked")) {
                 console.log(e);
+                const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+                console.log(e.target.value, _);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
             }
             else if ($(this).prop(":not(:checked)")) {
@@ -46,6 +50,8 @@ $(document).ready(function () {
     Select inputs mirrored on change
     */
     $('select').change(function (e) {
+        const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+        console.log(e.target.value, _);
 
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
@@ -56,6 +62,8 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="checkbox"]').forEach(function (val, index) {
         $(val).keyup(function (e) {
+            const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+            console.log(e.target.value, _);
             console.log(e, e.target.value)
             if ($(val).is(":checked")) {
                 console.log(e);
