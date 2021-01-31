@@ -11,9 +11,13 @@ $(document).ready(function () {
     /* 
     Text
     */
-    document.querySelectorAll('[marketo="text"]').change(function (e) {
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
-
+    document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
+        $(value).keyup(function (e) {
+            document.querySelectorAll('[marketo="text"]').forEach(function (val, indice) {
+                console.log($(val));
+                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
+            });
+        })
     });
 
     /* 
