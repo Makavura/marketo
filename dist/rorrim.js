@@ -104,7 +104,7 @@ $(document).ready(function () {
                 const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
                 if(_){
                     console.log(_);
-                    // document.getElementById(`_`).value = value["value"];
+                    document.getElementById(`_`).value = value["value"];
                 }
 
             });
