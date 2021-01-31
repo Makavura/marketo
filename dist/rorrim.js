@@ -13,11 +13,11 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
 
-        value.addEventListener('keyup', function(e){
+        value.addEventListener('focus', function (e) {
 
             const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
             console.log(e.target.value, _);
-                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
 
         });
 
