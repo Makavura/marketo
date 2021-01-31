@@ -11,8 +11,9 @@ $(document).ready(function () {
     /* 
     Text
     */
-    document.querySelectorAll('[marketo="text"]').keyup(function (e) {
+    document.querySelectorAll('[marketo="text"]').change(function (e) {
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
+
     });
 
     /* 
