@@ -105,6 +105,7 @@ $(document).ready(function () {
                 if(_){
                     console.log(_);
                     document.getElementById(_).value = value["value"];
+                    console.log(value["value"]);
                 }
 
             });
