@@ -13,12 +13,8 @@ $(document).ready(function () {
     */
     document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
         $(value).keyup(function (e) {
-            document.querySelectorAll('[marketo="text"]').forEach(function (val, indice) {
-                console.log($(val));
-                console.log(e.target.id);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
             });
-        })
     });
 
     /* 
