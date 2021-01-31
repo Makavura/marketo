@@ -102,12 +102,10 @@ $(document).ready(function () {
             */
             document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
                 const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
-                // if(_){
+                if(_){
                     console.log(_);
-                    const _id = value["id"];
                     document.getElementById(_).value = document.getElementById(_id).value;
-                    console.log(value["value"], document.getElementById(_id).value);
-                // }
+                }
 
             });
 
@@ -117,13 +115,12 @@ $(document).ready(function () {
             document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
                     const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
                     if(_){
-                        console.log(_);
                         const _id = value["id"];
                         document.getElementById(_).value = document.getElementById(_id).value;
-                        console.log(value["value"], document.getElementById(_id).value);
                     }
             });
 
+            console.log(document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id"));
             // $(`#${document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`)}`).submit();
         })
     });
