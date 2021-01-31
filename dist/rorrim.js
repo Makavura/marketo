@@ -9,28 +9,6 @@ set custom form inputs with a data attribute to match intended type e.g for emai
 
 $(document).ready(function () {
     /* 
-    Text
-    */
-    document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
-        let _ = document.getElementById(value["id"]);
-        return _.addEventListener('change', function (e) {
-            const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-            console.log(e.target.value, _);
-            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
-        });
-    });
-
-    /* 
-    Number
-    */
-    document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
-        $(value).change(function (e) {
-            const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-            console.log(e.target.value, _);
-            $(`#${_}`).value = e.target.value;
-        })
-    });
-    /* 
     Radio
     */
     document.querySelectorAll('[marketo="radio"]').forEach(function (value, index) {
@@ -121,7 +99,24 @@ $(document).ready(function () {
     document.querySelectorAll('[marketo="submit"]').forEach(function (value, index) {
         $(value).click(function (e) {
             e.preventDefault();
-            $(`#${document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`)}`).submit();
+
+            /* 
+            Text
+            */
+            document.querySelectorAll('[marketo="text"]').forEach(function (value, index) {
+                let _ = document.getElementById(value["id"]);
+                document.getElementById(`${document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id")}`).value = value["value"];
+            });
+
+            /* 
+            Number
+            */
+            document.querySelectorAll('[marketo="number"]').forEach(function (value, index) {
+                    const _ = document.querySelector(`#${value["id"]}`).getAttribute("marketo-input-id");
+                    $(`#${_}`).value = value["value"];
+            });
+
+            // $(`#${document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`)}`).submit();
         })
     });
 
