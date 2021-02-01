@@ -51,6 +51,7 @@ $(document).ready(function () {
         } else if (inputs[index].type == "checkbox") {
 
             $(inputs[index]).change(function (e) {
+                console.log(e.target.checked);
                 if ($(inputs[index]).is(":checked")) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
                 }
