@@ -22,6 +22,12 @@ $(document).ready(function () {
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
             });
 
+        } else if (inputs[index].type == "number") {
+
+            $(inputs[index]).keyup(function (e) {
+                document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
+            });
+
         } else if (inputs[index].type == "radio") {
 
             $(inputs[index]).change(function (e) {
