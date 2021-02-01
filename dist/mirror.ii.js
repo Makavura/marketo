@@ -4,7 +4,7 @@ SETUP INSTRUCTIONS
 set custom form inputs with a data attribute to match the id  intended field in webflow 
 e.g for a name entry in marketo with an id of Name, the attribute will be marketo-input-id=Name
 
-set custom form inputs with a data attribute to match intended type e.g for email input set marketo-input-type=email
+For Sliders: set custom form inputs with a data attribute to match intended type e.g for email input set marketo-input-type=slider
 */
 
 $(document).ready(function () {
@@ -21,6 +21,21 @@ $(document).ready(function () {
         });
 
     }
+    /* 
+    Slider
+    */
+    document.querySelectorAll('[marketo-input-type="slider"]').forEach(function (value, index) {
+        $(value).change(function (e) {
+            // console.log(e.target.value, index);
+        })
+        $(value).slider({
+            min: 0,
+            max: 100,
+            slide: function (event, ui) {
+                document.getElementById(`${document.querySelector(`#${event.target.id}`).getAttribute("marketo-input-id")}`).value = ui.value
+            }
+        });
+    });
     /* 
     Inputs
     */
