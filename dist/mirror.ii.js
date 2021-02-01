@@ -24,7 +24,8 @@ $(document).ready(function () {
 
         } else if (inputs[index].type == "number") {
 
-            $(inputs[index]).keyup(function (e) {
+            $(inputs[index]).change(function (e) {
+                console.log(e.target.value);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
             });
 
