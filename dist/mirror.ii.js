@@ -52,10 +52,10 @@ $(document).ready(function () {
 
             $(inputs[index]).change(function (e) {
                 console.log(e.target.checked);
-                if ($(inputs[index]).is(":checked")) {
+                if (e.target.checked) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
                 }
-                else if ($(inputs[index]).is(":not(:checked)")) {
+                else if (!e.target.checked) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
                 }
             });
