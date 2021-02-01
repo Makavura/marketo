@@ -35,7 +35,7 @@ $(document).ready(function () {
                 if (document.getElementById(e.target.id).checked) {
                     const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
-                    console,log(_);
+                    console.log(_);
                 }
                 else if (!document.getElementById(e.target.id).checked) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
@@ -76,7 +76,6 @@ $(document).ready(function () {
     $('select').change(function (e) {
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
-
     })
 
 })
