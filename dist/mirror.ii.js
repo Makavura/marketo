@@ -1,7 +1,6 @@
 $(document).ready(function () {
     textareas = document.getElementsByTagName('textarea');
     for (indice = 0; indice < textareas.length; ++indice) {
-
         $(textareas[indice]).change(function (e) {
             document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         });
@@ -30,7 +29,6 @@ $(document).ready(function () {
             });
         } else if (inputs[index].type == "number") {
             $(inputs[index]).change(function (e) {
-                console.log(e.target.value);
                 document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
             });
         } else if (inputs[index].type == "radio") {
@@ -38,7 +36,6 @@ $(document).ready(function () {
                 if (document.getElementById(e.target.id).checked) {
                     const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
-                    console.log(_);
                 }
                 else if (!document.getElementById(e.target.id).checked) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
@@ -50,7 +47,6 @@ $(document).ready(function () {
             });
         } else if (inputs[index].type == "checkbox") {
             $(inputs[index]).change(function (e) {
-                console.log(e.target.checked);
                 if (e.target.checked) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
                 }
