@@ -16,8 +16,6 @@ $(document).ready(function () {
 
     for (index = 0; index < inputs.length; ++index) {
 
-        console.log(inputs[index].type);
-
         if (inputs[index].type == "text") {
 
             $(inputs[index]).keyup(function (e) {
@@ -30,6 +28,7 @@ $(document).ready(function () {
                 if (document.getElementById(e.target.id).checked) {
                     const _ = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
+                    console,log(_);
                 }
                 else if (!document.getElementById(e.target.id).checked) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
@@ -43,6 +42,7 @@ $(document).ready(function () {
             });
 
         } else if (inputs[index].type == "checkbox") {
+
             $(inputs[index]).change(function (e) {
                 if ($(inputs[index]).is(":checked")) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
@@ -51,12 +51,15 @@ $(document).ready(function () {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
                 }
             });
+
         } else if (inputs[index].type == "submit") {
+
             $(inputs[index]).click(function (e) {
                 e.preventDefault();
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 document.getElementById(submissionbuttonid).submit();
-            })
+            });
+
         }
     }
 
