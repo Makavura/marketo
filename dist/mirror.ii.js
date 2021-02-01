@@ -43,23 +43,17 @@ $(document).ready(function () {
             });
 
         } else if (inputs[index].type == "checkbox") {
-
             $(inputs[index]).change(function (e) {
-                if ($(val).is(":checked")) {
+                if ($(inputs[index]).is(":checked")) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = true;
                 }
-                else if ($(val).is(":not(:checked)")) {
+                else if ($(inputs[index]).is(":not(:checked)")) {
                     document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).checked = false;
                 }
             });
-
-
         } else if (inputs[index].type == "submit") {
-
             $(inputs[index]).click(function (e) {
                 e.preventDefault();
-
-
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 document.getElementById(submissionbuttonid).submit();
             })
