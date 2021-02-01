@@ -8,6 +8,19 @@ set custom form inputs with a data attribute to match intended type e.g for emai
 */
 
 $(document).ready(function () {
+
+    /* 
+    Text Areas
+    */
+    textareas = document.getElementsByTagName('textarea');
+
+    for (indice = 0; indice < textareas.length; ++indice) {
+
+        $(textareas[indice]).change(function (e) {
+            document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
+        });
+
+    }
     /* 
     Inputs
     */
