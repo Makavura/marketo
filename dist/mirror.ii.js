@@ -69,7 +69,11 @@ $(document).ready(function () {
                 console.log(FD.getAll("FirstName"));
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 console.log(submissionbuttonid);
-                document.getElementById(submissionbuttonid).submit()
+                $("form#mktoForm_1048 :input[type='submit']").each(function(){
+                    var input = $(this); // This is the jquery object of the input, do what you will
+                   console.log(input[0]);
+                   input[0].click();
+                   });
             })
         }
     }
