@@ -64,7 +64,7 @@ $(document).ready(function () {
                     el.style.display = 'none';
                 });
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-                localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION", submissionbuttonid );
+                localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION", inputs[index]["form"]["id"] );
                 $(`form#${submissionbuttonid} :input[type='submit']`).each(function () {
                     var input = $(this);
                     console.log(input[0]);
@@ -95,7 +95,7 @@ MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function(form) {
         var formElement = form.getFormElem()[0];
         formElement.reset();
         const formtoberesetid = localStorage.getItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
-        $(`#${formtoberesetid}`)[0].reset();
+        document.getElementById(formtoberesetid).reset();
         localStorage.removeItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
         document.querySelectorAll('.w-form-done').forEach(function(el) {
                     el.style.display = 'block';
