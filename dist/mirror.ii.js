@@ -58,14 +58,12 @@ $(document).ready(function () {
 
             $(inputs[index]).submit(function (e) {
                 e.preventDefault();
+                const _ = inputs[index]["form"]["id"];
+                document.getElementById(_).submit();
+                alert("Submitted");   
             })
 
-            const _ = inputs[index]["form"]["id"];
-
-            document.getElementById(_).submit();
-
-            alert("Submitted");
-            // $(inputs[index]).click(function (e) {_
+             // $(inputs[index]).click(function (e) {_
 
             //     const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
             //     console.log(submissionbuttonid);
