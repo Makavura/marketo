@@ -62,7 +62,9 @@ $(document).ready(function () {
                 $(`#${submissionbuttonid}`).submit(function (event) {
                     event.preventDefault();
                 });
-                document.getElementById(submissionbuttonid).submit();
+                document.getElementById(submissionbuttonid).submit(function(eve){
+                    eve.preventDefault();
+                });
 
             });
         }
