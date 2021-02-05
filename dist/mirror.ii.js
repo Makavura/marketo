@@ -63,8 +63,8 @@ $(document).ready(function () {
                 document.querySelectorAll('.w-form-error').forEach(function (el) {
                     el.style.display = 'none';
                 });
-                document.getElementById(inputs[index]["form"]["id"]).style.display = "block";
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+                localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION", submissionbuttonid );
                 $(`form#${submissionbuttonid} :input[type='submit']`).each(function () {
                     var input = $(this);
                     console.log(input[0]);
@@ -80,17 +80,23 @@ $(document).ready(function () {
 })
 
 /*
+
+Marketo Embed Script 
+
 <script src="//i.xy.w/js/forms2/js/forms2.min.js"></script>
 <form id="mktoForm_1048" class="form-2"></form>
 <script>
 MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function(form) {
 //form.submit();
 //form.onSubmit((x) => {
-///console.log(x);
+//console.log(x);
 //})
     form.onSuccess(function(values, followUpUrl){
         var formElement = form.getFormElem()[0];
         formElement.reset();
+        const formtoberesetid = localStorage.getItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
+        $(`#${formtoberesetid}`)[0].reset();
+        localStorage.removeItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
         document.querySelectorAll('.w-form-done').forEach(function(el) {
                     el.style.display = 'block';
                  });
