@@ -70,5 +70,8 @@ $(document).ready(function () {
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
     });
 
+    $('#webflow').submit(function(e){
+        e.preventDefault();
+    })
 
 })
