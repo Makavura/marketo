@@ -64,11 +64,9 @@ $(document).ready(function () {
                     el.style.display = 'none';
                 });
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+                console.log(e.target.id);
                 let formtoberesetid = inputs[index]["form"]["id"];
-                if (formtoberesetid !== submissionbuttonid) {
-                    localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION", formtoberesetid);
-                }
-                console.log(formtoberesetid);
+                localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION",  formtoberesetid);;
                 $(`form#${submissionbuttonid} :input[type='submit']`).each(function () {
                     var input = $(this);
                     input[0].click();
@@ -84,7 +82,7 @@ $(document).ready(function () {
 
 /*
 
-Marketo Embed Script
+Marketo Embed Script 
 
 <script src="//i.xy.w/js/forms2/js/forms2.min.js"></script>
 <form id="mktoForm_1048" class="form-2"></form>
