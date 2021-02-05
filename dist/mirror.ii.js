@@ -55,23 +55,21 @@ $(document).ready(function () {
                 }
             });
         } else if (inputs[index].type == "submit") {
-            $(inputs[index]).click(function(e){
+            $(inputs[index]).click(function (e) {
                 e.preventDefault();
-                document.querySelectorAll('.w-form-done').forEach(function(el) {
+                document.querySelectorAll('.w-form-done').forEach(function (el) {
                     el.style.display = 'none';
-                 });
-                 document.querySelectorAll('.w-form-error').forEach(function(el) {
+                });
+                document.querySelectorAll('.w-form-error').forEach(function (el) {
                     el.style.display = 'none';
-                 });
-                 document.getElementById("webflow").style.display = "block";
-
+                });
+                document.getElementById(inputs[index]["form"]["id"]).style.display = "block";
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-
-                $(`form#${submissionbuttonid} :input[type='submit']`).each(function(){
+                $(`form#${submissionbuttonid} :input[type='submit']`).each(function () {
                     var input = $(this);
-                   console.log(input[0]);
-                   input[0].click();
-                   });
+                    console.log(input[0]);
+                    input[0].click();
+                });
             })
         }
     }
@@ -80,3 +78,24 @@ $(document).ready(function () {
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
     });
 })
+
+/*
+<script src="//i.xy.w/js/forms2/js/forms2.min.js"></script>
+<form id="mktoForm_1048" class="form-2"></form>
+<script>
+MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function(form) {
+//form.submit();
+//form.onSubmit((x) => {
+///console.log(x);
+//})
+    form.onSuccess(function(values, followUpUrl){
+        var formElement = form.getFormElem()[0];
+        formElement.reset();
+        document.querySelectorAll('.w-form-done').forEach(function(el) {
+                    el.style.display = 'block';
+                 });
+        return false;
+    });
+});
+</script>
+*/
