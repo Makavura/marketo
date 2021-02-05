@@ -55,7 +55,6 @@ $(document).ready(function () {
                 }
             });
         } else if (inputs[index].type == "submit") {
-
             $(inputs[index]).click(function(e){
                 e.preventDefault();
                 document.querySelectorAll('.w-form-done').forEach(function(el) {
@@ -68,17 +67,14 @@ $(document).ready(function () {
                 let form = inputs[index]["form"];
                 let FD = new FormData(form);
                 console.log(FD.getAll("FirstName"));
+                const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+                console.log(submissionbuttonid);
+                // document.getElementById(submissionbuttonid).submit()
             })
-
         }
     }
     $('select').change(function (e) {
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
     });
-
-    // $('#webflow').submit(function(e){
-    //     e.preventDefault();
-    // })
-
 })
