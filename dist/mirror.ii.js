@@ -56,22 +56,19 @@ $(document).ready(function () {
             });
         } else if (inputs[index].type == "submit") {
 
-            $(inputs[index]).submit(function (e) {
+            $(inputs[index]).submit(function(e){
                 e.preventDefault();
-                // document.getElementById(inputs[index]["form"]["id"]).submit(function(r){
-                //         r.preventDefault();
-                //     })
-                // const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-                // console.log(submissionbuttonid);
-                // $(`#${submissionbuttonid}`).submit(function (event) {
-                //     event.preventDefault();
-                // });
-                // document.getElementById(submissionbuttonid).submit()
-            });
+                let form = inputs[index]["form"];
+                let FD = new FormData(form);
+                console.log(FD.getAll("FirstName"));
+            })
+
         }
     }
     $('select').change(function (e) {
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).value = e.target.value;
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
     });
+
+
 })
