@@ -58,17 +58,18 @@ $(document).ready(function () {
 
             $(inputs[index]).submit(function (e) {
                 e.preventDefault();
+                console.log("TEST")
             })
-            $(inputs[index]).click(function (e) {
+            // $(inputs[index]).click(function (e) {
 
-                const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-                console.log(submissionbuttonid);
-                $(`#${submissionbuttonid}`).submit(function (event) {
-                    event.preventDefault();
-                });
-                document.getElementById(submissionbuttonid).submit()
+            //     const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+            //     console.log(submissionbuttonid);
+            //     $(`#${submissionbuttonid}`).submit(function (event) {
+            //         event.preventDefault();
+            //     });
+            //     document.getElementById(submissionbuttonid).submit()
 
-            });
+            // });
         }
     }
     $('select').change(function (e) {
