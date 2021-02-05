@@ -65,7 +65,7 @@ $(document).ready(function () {
                 });
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 console.log(e.target.id);
-                let formtoberesetid = inputs[index]["form"]["id"];
+                let formtoberesetid = document.getElementById(`${e.target.id}`)["form"]["id"]
                 localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION",  formtoberesetid);;
                 $(`form#${submissionbuttonid} :input[type='submit']`).each(function () {
                     var input = $(this);
