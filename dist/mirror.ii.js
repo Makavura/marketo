@@ -61,12 +61,12 @@ $(document).ready(function () {
                 // document.getElementById(inputs[index]["form"]["id"]).submit(function(r){
                 //         r.preventDefault();
                 //     })
-                // const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-                // console.log(submissionbuttonid);
+                const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
+                console.log(submissionbuttonid);
                 // $(`#${submissionbuttonid}`).submit(function (event) {
                 //     event.preventDefault();
                 // });
-                // document.getElementById(submissionbuttonid).submit()
+                document.getElementById(submissionbuttonid).submit()
             });
         }
     }
