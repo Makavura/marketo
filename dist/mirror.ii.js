@@ -69,7 +69,7 @@ $(document).ready(function () {
                 console.log(FD.getAll("FirstName"));
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 console.log(submissionbuttonid);
-                // document.getElementById(submissionbuttonid).submit()
+                document.getElementById(submissionbuttonid).submit()
             })
         }
     }
