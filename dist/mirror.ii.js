@@ -57,9 +57,10 @@ $(document).ready(function () {
         } else if (inputs[index].type == "submit") {
 
             $(inputs[index]).submit(function (e) {
-                document.getElementById(inputs[index]["form"]["id"]).submit(function(r){
-                        r.preventDefault();
-                    })
+                e.preventDefault();
+                // document.getElementById(inputs[index]["form"]["id"]).submit(function(r){
+                //         r.preventDefault();
+                //     })
                 // const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 // console.log(submissionbuttonid);
                 // $(`#${submissionbuttonid}`).submit(function (event) {
