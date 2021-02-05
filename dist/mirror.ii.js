@@ -60,7 +60,9 @@ $(document).ready(function () {
                 e.preventDefault();
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 console.log(submissionbuttonid);
-                document.getElementById(submissionbuttonid).submit();
+                document.getElementById(submissionbuttonid).submit(function (event) {
+                    event.preventDefault();
+                });
             });
         }
     }
