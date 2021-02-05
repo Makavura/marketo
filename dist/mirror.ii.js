@@ -64,10 +64,11 @@ $(document).ready(function () {
                     el.style.display = 'none';
                 });
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-                localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION", inputs[index]["form"]["id"] );
+                let formtoberesetid = inputs[index]["form"]["id"];
+                localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION",  formtoberesetid);
+                console.log(formtoberesetid);
                 $(`form#${submissionbuttonid} :input[type='submit']`).each(function () {
                     var input = $(this);
-                    console.log(input[0]);
                     input[0].click();
                 });
             })
