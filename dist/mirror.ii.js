@@ -65,7 +65,9 @@ $(document).ready(function () {
                 });
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
                 let formtoberesetid = inputs[index]["form"]["id"];
-                localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION",  formtoberesetid);
+                if (formtoberesetid !== submissionbuttonid) {
+                    localStorage.setItem("FORMTOBERESETONSUCCESSOFSUBMISSION", formtoberesetid);
+                }
                 console.log(formtoberesetid);
                 $(`form#${submissionbuttonid} :input[type='submit']`).each(function () {
                     var input = $(this);
@@ -82,7 +84,7 @@ $(document).ready(function () {
 
 /*
 
-Marketo Embed Script 
+Marketo Embed Script
 
 <script src="//i.xy.w/js/forms2/js/forms2.min.js"></script>
 <form id="mktoForm_1048" class="form-2"></form>
