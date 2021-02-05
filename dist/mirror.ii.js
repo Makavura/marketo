@@ -56,8 +56,15 @@ $(document).ready(function () {
             });
         } else if (inputs[index].type == "submit") {
 
-            $(inputs[index]).submit(function(e){
+            $(inputs[index]).click(function(e){
                 e.preventDefault();
+                document.querySelectorAll('.w-form-done').forEach(function(el) {
+                    el.style.display = 'none';
+                 });
+                 document.querySelectorAll('.w-form-error').forEach(function(el) {
+                    el.style.display = 'none';
+                 });
+                 document.getElementById("webflow").style.display = "block";
                 let form = inputs[index]["form"];
                 let FD = new FormData(form);
                 console.log(FD.getAll("FirstName"));
