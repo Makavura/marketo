@@ -64,13 +64,11 @@ $(document).ready(function () {
                     el.style.display = 'none';
                  });
                  document.getElementById("webflow").style.display = "block";
-                let form = inputs[index]["form"];
-                let FD = new FormData(form);
-                console.log(FD.getAll("FirstName"));
+
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-                console.log(submissionbuttonid);
-                $("form#mktoForm_1048 :input[type='submit']").each(function(){
-                    var input = $(this); // This is the jquery object of the input, do what you will
+
+                $(`form#${submissionbuttonid} :input[type='submit']`).each(function(){
+                    var input = $(this);
                    console.log(input[0]);
                    input[0].click();
                    });
