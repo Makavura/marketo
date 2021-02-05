@@ -59,11 +59,11 @@ $(document).ready(function () {
             $(inputs[index]).click(function (e) {
                 e.preventDefault();
                 const submissionbuttonid = document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id");
-                console.log(submissionbuttonid);
                 $(`#${submissionbuttonid}`).submit(function (event) {
-                    alert("BOOMBASTIC")
                     event.preventDefault();
                 });
+                document.getElementById(submissionbuttonid).submit();
+
             });
         }
     }
