@@ -57,7 +57,6 @@ $(document).ready(function () {
         } else if (inputs[index].type == "submit") {
             $(inputs[index]).click(function (e) {
                 e.preventDefault();
-                form.validate();
                 document.querySelectorAll('.w-form-done').forEach(function (el) {
                     el.style.display = 'none';
                 });
@@ -81,63 +80,73 @@ $(document).ready(function () {
     });
 
 
-/*    
-Check for submission error
-    MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function (form) {
-        // form.submit();
-        form.validate();
-        form.onValidate((y) => {
-            const validationErrorListener = setInterval(function () {
-            if(document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]){
-                    document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]}]`).forEach(function (value) {
-                    const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
-                    console.log(errorMessage, value);
-                    // replace content between tick marks in the next statement that you have designed to contain the mirrored error message. it will be displayed during run time in ${errorMessage}
-                    $(`
-                    <div class="mktoError" style="right: 6px; bottom: -34px;">
-                    <div class="mktoErrorArrowWrap">
-                    <div class="mktoErrorArrow"></div></div>
-                    <div id="ValidMsgFirstName" role="alert" tabindex="-1" class="mktoErrorMsg">${errorMessage}</div></div>
-                    `).insertAfter($(value));
-                        stopValidationErrorListener();
-                    });
+    /*    
+    Check for submission error
+        MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function (form) {
+            // form.submit();
+            // form.validate();
+            inputs = document.getElementsByTagName('input');
+                for (index = 0; index < inputs.length; ++index) {
+                    if (inputs[index].type == "submit"  && inputs[index]["form"]["id"] !== form.getFormElem()[0]["id"]) {
+                        $(inputs[index]).click(function (e) {
+                            e.preventDefault();
+                            form.validate();
+                        })
                 }
-            }, 100);
-
-           function stopValidationErrorListener(){
-                clearInterval(validationErrorListener);
             }
-        })
-        form.onSubmit((x) => {
-            console.log(x);
-            const submissionErrorListener = setInterval(function () {
-                if (document.getElementsByClassName("mktoErrorMsg").length === 1) {
-                    document.querySelectorAll('[marketo-status="error"]').forEach(function (value) {
-                        value.style.display = 'block'; 
-                        stopSubmissionErrorListener();
-                    });
+    
+            form.onValidate((y) => {
+                const validationErrorListener = setInterval(function () {
+                if(document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]){
+                        document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]}]`).forEach(function (value) {
+                        const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
+                        console.log(errorMessage, value);
+                        // replace content between tick marks in the next statement that you have designed to contain the mirrored error message. it will be displayed during run time in ${errorMessage}
+                        $(`
+                        <div class="mktoError" style="right: 6px; bottom: -34px;">
+                        <div class="mktoErrorArrowWrap">
+                        <div class="mktoErrorArrow"></div></div>
+                        <div id="ValidMsgFirstName" role="alert" tabindex="-1" class="mktoErrorMsg">${errorMessage}</div></div>
+                        `).insertAfter($(value));
+                            stopValidationErrorListener();
+                        });
+                    }
+                }, 100);
+    
+               function stopValidationErrorListener(){
+                    clearInterval(validationErrorListener);
                 }
-            }, 100);
-
-           function stopSubmissionErrorListener(){
-                clearInterval(submissionErrorListener);
-            }
-
-        })
-        form.onSuccess(function (values, followUpUrl) {
-            var formElement = form.getFormElem()[0];
-            formElement.reset();
-            const formtoberesetid = localStorage.getItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
-            document.getElementById(formtoberesetid).reset();
-            localStorage.removeItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
-            document.querySelectorAll('.w-form-done').forEach(function (el) {
-                el.style.display = 'block';
+            })
+            form.onSubmit((x) => {
+                console.log(x);
+                const submissionErrorListener = setInterval(function () {
+                    if (document.getElementsByClassName("mktoErrorMsg").length === 1) {
+                        document.querySelectorAll('[marketo-status="error"]').forEach(function (value) {
+                            value.style.display = 'block'; 
+                            stopSubmissionErrorListener();
+                        });
+                    }
+                }, 100);
+    
+               function stopSubmissionErrorListener(){
+                    clearInterval(submissionErrorListener);
+                }
+    
+            })
+            form.onSuccess(function (values, followUpUrl) {
+                var formElement = form.getFormElem()[0];
+                formElement.reset();
+                const formtoberesetid = localStorage.getItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
+                document.getElementById(formtoberesetid).reset();
+                localStorage.removeItem("FORMTOBERESETONSUCCESSOFSUBMISSION");
+                document.querySelectorAll('.w-form-done').forEach(function (el) {
+                    el.style.display = 'block';
+                });
+                return false;
             });
-            return false;
         });
-    });
-
- */
+    
+     */
 })
 
 /*
