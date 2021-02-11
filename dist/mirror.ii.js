@@ -79,18 +79,18 @@ $(document).ready(function () {
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
     });
 
-    // MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function (form) {
-    //     // form.submit();
-    //     // form.validate();
-    //     inputs = document.getElementsByTagName('input');
-    //     for (index = 0; index < inputs.length; ++index) {
-    //         if (inputs[index].type == "submit" && inputs[index]["form"]["id"] !== form.getFormElem()[0]["id"]) {
-    //             $(inputs[index]).click(function (e) {
-    //                 e.preventDefault();
-    //                 form.validate();
-    //             })
-    //         }
-    //     }
+    MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function (form) {
+        // form.submit();
+        // form.validate();
+        inputs = document.getElementsByTagName('input');
+        for (index = 0; index < inputs.length; ++index) {
+            if (inputs[index].type == "submit" && inputs[index]["form"]["id"] !== form.getFormElem()[0]["id"]) {
+                $(inputs[index]).click(function (e) {
+                    e.preventDefault();
+                    form.validate();
+                })
+            }
+        }
 
     //     form.onValidate((y) => {
     //         const validationErrorListener = setInterval(function () {
@@ -105,34 +105,47 @@ $(document).ready(function () {
     //             If so, do nothing
     //             If not, remove  
     //             */
-
+    //             let collection = document.getElementById(form.getFormElem()[0].attributes['webflow-mirror-form-id']['value']).getElementsByTagName('input');
+    //             for (item of collection) {
+    //                 console.log(item);
+    //                 if($(item).next().hasClass('finwferror')){
+    //                     if($(item).attr('marketo-input-id')){
+    //                         let marketo_mirrored_input_id = $(item).attr('marketo-input-id');
+    //                         if($(`#${marketo_mirrored_input_id}`).next().hasClass('mktoError')){
+    //                             console.log("element still in error state")
+    //                         } else {
+    //                             $(item).next().remove()
+    //                         }
+    //                     }
+    //                 }
+    //             }
     //             /* 
     //             Error Message Setting
     //             */
     //             if (document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]) {
     //                 document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]}]`)
-    //                 .forEach(function (value) {
-    //                     const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
-    //                     console.log(errorMessage, value, $(value)["id"],  $(value).next());
-    //                     /* 
-    //                     Features Required:
-    //                     1.Prevent Duplication of error messages 
-    //                         - upon validation at this point where an error message is to be set
-    //                         - check if next sibling is the error message element, if so, do not set, if not, set
-    //                     2.Removal of error message if updates have been made 
-    //                         -Traverse webflow form, find the elements whose next sibling is that of error message 
-    //                         -check if the mirrored elements in the Marketo form's next sibling has the class mktoError
-    //                         -if mktoError exists, keep error message in Webflow, if not remove error message in Webflow
-    //                     */
+    //                     .forEach(function (value) {
+    //                         const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
+    //                         console.log(errorMessage, value, $(value)["id"], $(value).next());
+    //                         /* 
+    //                         Features Required:
+    //                         1.Prevent Duplication of error messages 
+    //                             - upon validation at this point where an error message is to be set
+    //                             - check if next sibling is the error message element, if so, do not set, if not, set
+    //                         2.Removal of error message if updates have been made 
+    //                             -Traverse webflow form, find the elements whose next sibling is that of error message 
+    //                             -check if the mirrored elements in the Marketo form's next sibling has the class mktoError
+    //                             -if mktoError exists, keep error message in Webflow, if not remove error message in Webflow
+    //                         */
 
-    //                     // prevent duplication of error messages
-    //                     if($(value).next()[0]["className"] === 'fin-wf-error'){ 
-    //                         console.warn("Error display already set on next sibling");
-    //                     } else {
-    //                         $(`<div class='finwferror'>${errorMessage}</div>`).insertAfter($(value));
-    //                     }
-    //                     stopValidationErrorListener();
-    //                 });
+    //                         // prevent duplication of error messages
+    //                         if ($(value).next()[0]["className"] === 'finwferror') {
+    //                             console.warn("Error display already set on next sibling");
+    //                         } else {
+    //                             $(`<div class='finwferror'>${errorMessage}</div>`).insertAfter($(value));
+    //                         }
+    //                         stopValidationErrorListener();
+    //                     });
     //             }
     //         }, 100);
 
@@ -140,7 +153,7 @@ $(document).ready(function () {
     //             clearInterval(validationErrorListener);
     //         }
     //     })
-        
+
     //     form.onSubmit((x) => {
     //         console.log(x);
     //         const submissionErrorListener = setInterval(function () {
