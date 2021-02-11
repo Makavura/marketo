@@ -96,8 +96,16 @@ $(document).ready(function () {
             const validationErrorListener = setInterval(function () {
                 /* 
                 Webflow Error Message Removal
+                Set a webflow-mirror-form-id data attribute to marketo form
+                Loop through the webflow form inputs
+                Check if next sibling is an error message display
+                If so
+                Find the input id of marketo form input
+                Check if next sibling is an error message as well
+                If so, do nothing
+                If not, remove
                 */
-               
+
                 /* 
                 Error Message Setting
                 */
