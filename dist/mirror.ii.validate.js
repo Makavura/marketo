@@ -72,21 +72,24 @@ form.onValidate((y) => {
                 }
             } else if (element.nodeName.toLowerCase() == 'div') {
                 let div_child_nodes = element.childNodes;
-                Array.prototype.forEach.call(div_child_nodes, function (element) {
+                Array.prototype.forEach.call(div_child_nodes, function (element, indice) {
                     if (element.tagName.toLowerCase() == 'input') {
-                        document.querySelectorAll(`[marketo-input-id=${element.id}]`)
-                            .forEach(function (value, index) {
-                                const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
-                                console.log($(value).parent().parent());
-                                if (index == 0) {
-                                    if ($(value).parent().parent().prev()[0]["className"] === 'finwferror') {
-                                        console.warn("Error display already set on next sibling");
-                                    } else {
-                                        $(`<div class='finwferror'>${errorMessage}</div>`).insertBefore($(value).parent().parent());
-                                    }
-                                } else {console.warn("already set error status")}
+                        if (element.type == 'radio') {
+                            document.querySelectorAll(`[marketo-input-id=${element.id}]`)
+                                .forEach(function (value) {
+                                    const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
+                                    console.log($(value).parent().parent());
+                                    if (indice == 0) {
+                                        if ($(value).parent().parent().prev()[0]["className"] === 'finwferror') {
+                                            console.warn("Error display already set on next sibling");
+                                        } else {
+                                            $(`<div class='finwferror'>${errorMessage}</div>`).insertBefore($(value).parent().parent());
+                                        }
+                                    } else { console.warn("already set error status") }
+                                })
+                        } else if (element.type == 'checkbox') {
 
-                            })
+                        }
                         stopValidationErrorListener();
                     }
                 });
