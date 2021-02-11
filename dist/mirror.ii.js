@@ -94,6 +94,13 @@ $(document).ready(function () {
 
         form.onValidate((y) => {
             const validationErrorListener = setInterval(function () {
+                /* 
+                Webflow Error Message Removal
+                */
+               
+                /* 
+                Error Message Setting
+                */
                 if (document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]) {
                     document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]}]`)
                     .forEach(function (value) {
