@@ -2,7 +2,10 @@ form.onValidate((y) => {
     const validationErrorListener = setInterval(function () {
         /* 
         Webflow Error Message Removal
-        Set a webflow-mirror-form-id data attribute to marketo form
+        Set a webflow-mirror-form-id data attribute to marketo form e.g :
+            <script src="//info.xyz.com/js/forms2/js/forms2.min.js"></script>
+            <form id="mktoForm_1048" webflow-mirror-form-id="webflow"  class="form-2"></form>
+            
         Loop through the webflow form inputs
         Check if next sibling is an error message display
         If so
@@ -81,14 +84,23 @@ form.onValidate((y) => {
                                     console.log($(value).parent().parent());
                                     if (indice == 0) {
                                         if ($(value).parent().parent().prev()[0]["className"] === 'finwferror') {
-                                            console.warn("Error display already set on next sibling");
+                                            // console.warn("Error display already set on next sibling");
                                         } else {
                                             $(`<div class='finwferror'>${errorMessage}</div>`).insertBefore($(value).parent().parent());
                                         }
                                     } else { console.warn("already set error status") }
                                 })
                         } else if (element.type == 'checkbox') {
-
+                            document.querySelectorAll(`[marketo-input-id=${element.id}]`)
+                            .forEach(function (value) {
+                                const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
+                                console.log($(value).parent(), errorMessage);
+                                if ($(value).parent().prev()[0]["className"] === 'finwferror') {
+                                    // console.warn("Error display already set on next sibling");
+                                } else {
+                                    $(`<div class='finwferror'>${errorMessage}</div>`).insertBefore($(value).parent());
+                                }
+                            })
                         }
                         stopValidationErrorListener();
                     }
