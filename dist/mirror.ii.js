@@ -130,7 +130,7 @@ $(document).ready(function () {
                             console.warn("Error display already set on next sibling");
                         } else {
                             $(`
-                            <div class="fin-wf-error">${errorMessage}</div>
+                            <div class="finwferror">${errorMessage}</div>
                             `).insertAfter($(value));
                         }
                         stopValidationErrorListener();
