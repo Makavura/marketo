@@ -79,18 +79,18 @@ $(document).ready(function () {
         document.getElementById(`${document.querySelector(`#${e.target.id}`).getAttribute("marketo-input-id")}`).setAttribute("selected", "selected");
     });
 
-    MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function (form) {
-        // form.submit();
-        // form.validate();
-        inputs = document.getElementsByTagName('input');
-        for (index = 0; index < inputs.length; ++index) {
-            if (inputs[index].type == "submit" && inputs[index]["form"]["id"] !== form.getFormElem()[0]["id"]) {
-                $(inputs[index]).click(function (e) {
-                    e.preventDefault();
-                    form.validate();
-                })
-            }
-        }
+    // MktoForms2.loadForm("//i.xy.w", "STRINGFRMMRKTO", 1048, function (form) {
+    //     // form.submit();
+    //     // form.validate();
+    //     inputs = document.getElementsByTagName('input');
+    //     for (index = 0; index < inputs.length; ++index) {
+    //         if (inputs[index].type == "submit" && inputs[index]["form"]["id"] !== form.getFormElem()[0]["id"]) {
+    //             $(inputs[index]).click(function (e) {
+    //                 e.preventDefault();
+    //                 form.validate();
+    //             })
+    //         }
+    //     }
 
     //     form.onValidate((y) => {
     //         const validationErrorListener = setInterval(function () {
@@ -119,6 +119,7 @@ $(document).ready(function () {
     //                     }
     //                 }
     //             }
+    //             console.log(document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"])
     //             /* 
     //             Error Message Setting
     //             */
