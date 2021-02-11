@@ -113,7 +113,7 @@ $(document).ready(function () {
                     document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]}]`)
                     .forEach(function (value) {
                         const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
-                        console.log(errorMessage, value, $(value).next());
+                        console.log(errorMessage, value, $(value)["id"],  $(value).next());
                         /* 
                         Features Required:
                         1.Prevent Duplication of error messages 
