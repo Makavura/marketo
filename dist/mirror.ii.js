@@ -103,7 +103,7 @@ $(document).ready(function () {
                 Find the input id of marketo form input
                 Check if next sibling is an error message as well
                 If so, do nothing
-                If not, remove
+                If not, remove  
                 */
 
                 /* 
@@ -126,13 +126,13 @@ $(document).ready(function () {
                         */
 
                         // prevent duplication of error messages
-                        if($(value).next()[0]["className"] === 'fin-wf-error'){ 
-                            console.warn("Error display already set on next sibling");
-                        } else {
-                            $(`
-                            <div class="fin-wf-error">${errorMessage}</div>
-                            `).insertAfter($(value));
-                        }
+                        // if($(value).next()[0]["className"] === 'fin-wf-error'){ 
+                        //     console.warn("Error display already set on next sibling");
+                        // } else {
+                        //     $(`
+                        //     <div class="fin-wf-error">${errorMessage}</div>
+                        //     `).insertAfter($(value));
+                        // }
                         stopValidationErrorListener();
                     });
                 }
