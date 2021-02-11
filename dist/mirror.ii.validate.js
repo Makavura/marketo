@@ -11,9 +11,21 @@ form.onValidate((y) => {
         If so, do nothing
         If not, remove  
         */
-        let collection = document.getElementById(form.getFormElem()[0].attributes['webflow-mirror-form-id']['value']).getElementsByTagName('input');
-        for (item of collection) {
-            console.log(item);
+        let input_collection = document.getElementById(form.getFormElem()[0].attributes['webflow-mirror-form-id']['value']).getElementsByTagName('input');
+        let select_collection = document.getElementById(form.getFormElem()[0].attributes['webflow-mirror-form-id']['value']).getElementsByTagName('select');
+        for (item of input_collection) {
+            if ($(item).next().hasClass('finwferror')) {
+                if ($(item).attr('marketo-input-id')) {
+                    let marketo_mirrored_input_id = $(item).attr('marketo-input-id');
+                    if ($(`#${marketo_mirrored_input_id}`).next().hasClass('mktoError')) {
+                        console.log("element still in error state")
+                    } else {
+                        $(item).next().remove()
+                    }
+                }
+            }
+        }
+        for (item of select_collection) {
             if ($(item).next().hasClass('finwferror')) {
                 if ($(item).attr('marketo-input-id')) {
                     let marketo_mirrored_input_id = $(item).attr('marketo-input-id');
@@ -29,9 +41,9 @@ form.onValidate((y) => {
         let parent_child_nodes = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].childNodes
         Array.prototype.forEach.call(parent_child_nodes, function (element) {
             console.log(element.nodeName);
-            if (element.nodeName == 'select') {
+            if (element.nodeName.toLowerCase() == 'select') {
                 if (document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('select')[0]["id"]) {
-                    document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]}]`)
+                    document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('select')[0]["id"]}]`)
                         .forEach(function (value) {
                             const errorMessage = document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["innerText"];
                             console.log(errorMessage, value, $(value)["id"], $(value).next());
@@ -43,7 +55,7 @@ form.onValidate((y) => {
                             stopValidationErrorListener();
                         });
                 }
-            } else if (element.nodeName == 'input') {
+            } else if (element.nodeName.toLowerCase() == 'input') {
                 if (document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]) {
                     document.querySelectorAll(`[marketo-input-id=${document.getElementsByClassName("mktoErrorMsg")[0]["parentElement"]["parentElement"].getElementsByTagName('input')[0]["id"]}]`)
                         .forEach(function (value) {
@@ -59,12 +71,14 @@ form.onValidate((y) => {
                 }
             }
         })
+
+        stopValidationErrorListener();
     }, 100);
 
     function stopValidationErrorListener() {
         clearInterval(validationErrorListener);
     }
-})
+});
 
 /*
 Error Message Setting
