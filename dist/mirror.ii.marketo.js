@@ -1,6 +1,4 @@
 MktoForms2.loadForm("", "", 1048, function (form) {
-    // form.submit();
-    // form.validate();
     inputs = document.getElementsByTagName('input');
     for (index = 0; index < inputs.length; ++index) {
         if (inputs[index].type == "submit" && inputs[index]["form"]["id"] !== form.getFormElem()[0]["id"]) {
