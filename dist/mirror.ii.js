@@ -129,9 +129,7 @@ $(document).ready(function () {
                         if($(value).next()[0]["className"] === 'fin-wf-error'){ 
                             console.warn("Error display already set on next sibling");
                         } else {
-                            $(`
-                            <div class="finwferror">${errorMessage}</div>
-                            `).insertAfter($(value));
+                            $("<p class='finwferror'>${errorMessage}</p>").insertAfter($(value));
                         }
                         stopValidationErrorListener();
                     });
